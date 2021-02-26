@@ -1,115 +1,2357 @@
-<!doctype html>
-<html lang="en-US">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Light Theme</title>
-<link href="css/singlePageTemplate.css" rel="stylesheet" type="text/css">
-<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
-<script>var __adobewebfontsappname__="dreamweaver"</script>
-<script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body>
-<!-- Main Container -->
-<div class="container"> 
-  <!-- Navigation -->
-<header> <a href="">
-    <h4 class="logo">medhack2021</h4>
-    </a>
-    <nav>
-      <ul>
-        <li><a href="#hero">HOME</a></li>
-        <li><a href="#about">ABOUT</a></li>
-		 <li><a href="#challenges">CHALLENGES</a></li> 
-        <li> <a href="#contact">CONTACT</a></li>
-      </ul>
-    </nav>
-</header>
-  <!-- Hero Section -->
-<section class="hero" id="hero">
-    <h2 class="hero_header">MedHack 2021</h2>
-  <p class="tagline">Online - 6th March 2021</p>
-	  <div class="button">Sign Up</div>
-  </section>
-  <!-- About Section -->
-  <section class="about" id="about">
-    <h2 class="hidden">About</h2>
-    <p class="text_column"><b>What is a Hackathon?</b> Hackathon is usually a 24h or 48h event where programmers come together for a short period of time to collaborate on a project. As hackathon grows in popularity, many variants of hackathon have popped up, some even without coding. </p>
-    <p class="text_column"><b>What is a MedHack2021?</b> MedHack2021 is a virtual hackathon with the theme of Digitalised Medicine. Participants will come together (virtually) over a weekend to create technological solutions that solve any healthcare-related problem. The range of solutions is pretty much endless, ranging from enhancing medical education with VR, to assisting image diagnostic with AI, from improving communications in the hospital, to finding the optimal vaccine distribution algorithms in the pandemic. </p>
-    <p class="text_column"><b>How much does it cost?</b> This event is completely FREE to attend! There will be awesome prizes and merchs for the participants! So sign up while there’s still space left.&nbsp;</p>
-    <p class="text_column"><b>Can I take part?</b> Students from any universities in the UK are welcome to attend.&nbsp;No experience in medicine, technology, or programming is needed. Just bring your enthusiasm and creativity. Teams consist of 2 to 5 people.<br>
-    </p>
-	 
-    
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link id="colourscheme" rel="stylesheet" href="green.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body onload="loadFunction()">
+        <div id="errorModal" class="modal">
 
-</section>
-  <!-- Stats Gallery Section -->
-  <section class="banner">
-    <h2 class="parallax">CHALLENGES</h2>
-    <p class="parallax_description">We have multiple prize catagories available so there are more winners!</p>
-	  
-	  
-  </section>
-  <!-- Parallax Section -->
-  
-	 <section class="about" id="challenges">
-    <h2 class="hidden">Challenges</h2>
-    <p class="text_column"><b>Most Clinically useful</b> <br>
-      The solution with the highest clinical benefit </p>
-    <p class="text_column"><b> Most Technically complex</b> <br>
-      The most techinally impressive solution&nbsp; </p>
-    <p class="text_column"><b> Most Implementable in real-life</b> <br>
-      The solution that is most practical to implement within the NHS&nbsp; </p>
-    
-    
-	</section>
-	
-	<section class="banner">
-    <h2 class="parallax">PARTNERS AND SPONSORS</h2>
-    <p class="parallax_description">Here is a list of our wonderful partners and sponsors!</p>
-	  
-	  
-  </section>
-  <!-- More Info Section -->
-	
-<footer>
-    <article class="footer_column">
-      <h3>HULL BIOMED SOCIETY</h3>
-      <img src="images/biomed.png" alt="" width="300" height="300" />
-      <p></p>
-    </article>
-    <article class="footer_column">
-      <h3>HULL COMPUTER SCIENCE SOCIETY</h3>
-      <img src="images/hcss.png" alt="" width="300" height="300" />
-      <p> </p>
-    </article>
-	  <article class="footer_column">
-      <h3>HULL UNIVERSITY PHYSICS SOCIETY </h3>
-      <img src="images/hups.png" alt="" width="350" height="300" />
-      <p> </p>
-    </article>
-	  <article class="footer_column">
-      <h3>MTF HYMS&nbsp;</h3>
-      <img src="images/hyms.png" alt="" width="300" height="300" />
-<p> </p>
-		  
-  </footer>
-  <!-- Footer Section -->
-  <section class="footer_banner" id="contact">
-    <h2 class="hidden">Footer Banner Section </h2>
-    <p class="hero_header">Have more questions?</p>
-    <div class="button">Contact Us</div>
-  </section>
-  <!-- Copyrights Section -->
-  <div class="copyright"> <strong>Hull Hack</strong></div>
-</div>
-<!-- Main Container Ends -->
-</body>
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <p>This site requires the microphone to function, please give permission to use the voice recognition.</p>
+            </div>
+          
+          </div>
+        <button class="optionBtn" onclick="openOptions()"><div class="optionsIcon"><i class="fa fa-cog" aria-hidden="true"></i>
+        </div></button>
+        <!--OPTION MENU-->
+        <div id="options" class="sidenav">
+            <button class="closeBtn" onclick="closeOptions()"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <div class="colourOptions">
+                <b style="color: white; font-size: 20px;">Colour Scheme</b>
+                <div class="dropdown-content">
+                    <a onclick="setColourScheme('green')">Green</a>
+                    <a onclick="setColourScheme('blue')">Blue</a>
+                    <a onclick="setColourScheme('dark')">Dark</a>
+                </div>
+                <br>
+                <b style="color: white; font-size: 20px;">Font</b>
+                <div class="dropdown-content">
+                    <a style="font-family: Lucida Console;" onclick="setFont('Lucida Console')">Lucida Console</a>
+                    <a style="font-family: Arial;"onclick="setFont('Arial')">Arial</a>
+                    <a style="font-family: Century Gothic;"onclick="setFont('Century Gothic')">Century Gothic</a>
+                </div>
+            </div>
+            <div class="fontOptions">
+
+            </div>
+            <div class="speechOptions">
+
+            </div>
+        </div>
+        <!--START MENU-->
+        <div id="home" class="window">
+            <button class="startBtn" onclick="startRecognition()"><div class="micIcon"><i class="fa fa-microphone" aria-hidden="true"></i></div></i>
+            </button>
+        </div>
+        <!--LISTENING MENU-->
+        <div id="listening"  class="window">
+            <div class="wordTitle">Listening</div>
+            <div class="micIcon"><i class="fa fa-microphone" aria-hidden="true"></i></div>
+        </div>
+        <!--HOMONYM MENU-->
+        <div id="homonymDiv"  class="window">
+            <div id="homonymTable">
+
+            </div>
+        </div>
+        <!--SPELLING MENU-->
+        <div id="word"  class="window">
+            <button id="soundBtn" class="soundBtn" onclick="playSpellingSpeech(word)"><div class="soundIcon"><i class="fa fa-volume-up" aria-hidden="true"></i></div></button>
+            <div class="wordTitle"><p id="wordP"></p></div>
+            <p id="wordDef"></p>
+            
+            <button class="startBtn" onclick="startRecognition()"><div class="micIcon"><i class="fa fa-microphone" aria-hidden="true"></i></div></i>
+        </div>
+
+        <script>
+            //HOMONYMS
+            //#region
+           var homonyms=[{
+                "homonyms": "axe",
+                "definition": "things done",
+                "spelling": "acts"
+            },
+            {
+                "homonyms": "acts",
+                "definition": "chopping tool",
+                "spelling": "axe"
+            },
+            {
+                "homonyms": "eight",
+                "definition": "past tense of eat",
+                "spelling": "ate"
+            },
+            {
+                "homonyms": "ate",
+                "definition": "the number 8",
+                "spelling": "eight"
+            },
+            {
+                "homonyms": "ought",
+                "definition": "anything",
+                "spelling": "aught"
+            },
+            {
+                "homonyms": "aught",
+                "definition": "should",
+                "spelling": "ought"
+            },
+            {
+                "homonyms": "oral",
+                "definition": "of hearing",
+                "spelling": "aural"
+            },
+            {
+                "homonyms": "aural",
+                "definition": "of the mouth",
+                "spelling": "oral"
+            },
+            {
+                "homonyms": "effect",
+                "definition": "to change",
+                "spelling": "affect"
+            },
+            {
+                "homonyms": "affect",
+                "definition": "result",
+                "spelling": "effect"
+            },
+            {
+                "homonyms": "heir",
+                "definition": "gas you breathe",
+                "spelling": "air"
+            },
+            {
+                "homonyms": "air",
+                "definition": "in line to succeed",
+                "spelling": "heir"
+            },
+            {
+                "homonyms": "I'll",
+                "definition": "passageway between rows",
+                "spelling": "aisle"
+            },
+            {
+                "homonyms": "aisle",
+                "definition": "I will",
+                "spelling": "I'll"
+            },
+            {
+                "homonyms": "aloud",
+                "definition": "permitted",
+                "spelling": "allowed"
+            },
+            {
+                "homonyms": "allowed",
+                "definition": "spoken",
+                "spelling": "aloud"
+            },
+            {
+                "homonyms": "alter",
+                "definition": "raised centre of worship",
+                "spelling": "altar"
+            },
+            {
+                "homonyms": "altar",
+                "definition": "to change",
+                "spelling": "alter"
+            },
+            {
+                "homonyms": "bawl",
+                "definition": "playful orb",
+                "spelling": "ball"
+            },
+            {
+                "homonyms": "ball",
+                "definition": "to cry",
+                "spelling": "bawl"
+            },
+            {
+                "homonyms": "aunt",
+                "definition": "insect",
+                "spelling": "ant"
+            },
+            {
+                "homonyms": "ant",
+                "definition": "parent's sister",
+                "spelling": "aunt"
+            },
+            {
+                "homonyms": "banned",
+                "definition": "a group",
+                "spelling": "band"
+            },
+            {
+                "homonyms": "band",
+                "definition": "forbidden",
+                "spelling": "banned"
+            },
+            {
+                "homonyms": "bear",
+                "definition": "naked",
+                "spelling": "bare"
+            },
+            {
+                "homonyms": "bare",
+                "definition": "wild ursine",
+                "spelling": "bear"
+            },
+            {
+                "homonyms": "boulder",
+                "definition": "more courageous",
+                "spelling": "bolder"
+            },
+            {
+                "homonyms": "bolder",
+                "definition": "large rock",
+                "spelling": "boulder"
+            },
+            {
+                "homonyms": "barren",
+                "definition": "minor royalty",
+                "spelling": "baron"
+            },
+            {
+                "homonyms": "baron",
+                "definition": "unable to bear children",
+                "spelling": "barren"
+            },
+            {
+                "homonyms": "bury",
+                "definition": "small fruit",
+                "spelling": "berry"
+            },
+            {
+                "homonyms": "berry",
+                "definition": "to take under",
+                "spelling": "bury"
+            },
+            {
+                "homonyms": "borne,bourn",
+                "definition": "brought into life",
+                "spelling": "born"
+            },
+            {
+                "homonyms": "born,bourn",
+                "definition": "past participle of bear",
+                "spelling": "borne"
+            },
+            {
+                "homonyms": "born,borne",
+                "definition": "a small stream or boundary",
+                "spelling": "bourn"
+            },
+            {
+                "homonyms": "bass",
+                "definition": "foundation, the lowest musical",
+                "spelling": "base"
+            },
+            {
+                "homonyms": "base",
+                "definition": "pitch or range",
+                "spelling": "bass"
+            },
+            {
+                "homonyms": "bow",
+                "definition": "tree branch",
+                "spelling": "bough"
+            },
+            {
+                "homonyms": "bough",
+                "definition": "respectful bend, weapon for shooting arrows",
+                "spelling": "bow"
+            },
+            {
+                "homonyms": "basis",
+                "definition": "plural of base, many four-stringed guitars",
+                "spelling": "bases"
+            },
+            {
+                "homonyms": "bases",
+                "definition": "principal constituent of anything",
+                "spelling": "basis"
+            },
+            {
+                "homonyms": "boy",
+                "definition": "navigational aid",
+                "spelling": "buoy"
+            },
+            {
+                "homonyms": "buoy",
+                "definition": "male child",
+                "spelling": "boy"
+            },
+            {
+                "homonyms": "break",
+                "definition": "stopping device",
+                "spelling": "brake"
+            },
+            {
+                "homonyms": "brake",
+                "definition": "to split apart",
+                "spelling": "break"
+            },
+            {
+                "homonyms": "bee",
+                "definition": "to exist",
+                "spelling": "be"
+            },
+            {
+                "homonyms": "be",
+                "definition": "insect",
+                "spelling": "bee"
+            },
+            {
+                "homonyms": "beet",
+                "definition": "to hit",
+                "spelling": "beat"
+            },
+            {
+                "homonyms": "beat",
+                "definition": "edible red root",
+                "spelling": "beet"
+            },
+            {
+                "homonyms": "birth",
+                "definition": "anchorage",
+                "spelling": "berth"
+            },
+            {
+                "homonyms": "berth",
+                "definition": "process of bearing young",
+                "spelling": "birth"
+            },
+            {
+                "homonyms": "bite,byte",
+                "definition": "middle of a rope",
+                "spelling": "bight"
+            },
+            {
+                "homonyms": "bight,byte",
+                "definition": "a mouthful",
+                "spelling": "bite"
+            },
+            {
+                "homonyms": "bight,bite",
+                "definition": "eight bits",
+                "spelling": "byte"
+            },
+            {
+                "homonyms": "breech",
+                "definition": "to break through",
+                "spelling": "breach"
+            },
+            {
+                "homonyms": "breach",
+                "definition": "the back part",
+                "spelling": "breech"
+            },
+            {
+                "homonyms": "bred",
+                "definition": "a loaf",
+                "spelling": "bread"
+            },
+            {
+                "homonyms": "bread",
+                "definition": "past tense of breed",
+                "spelling": "bred"
+            },
+            {
+                "homonyms": "brood",
+                "definition": "fermented",
+                "spelling": "brewed"
+            },
+            {
+                "homonyms": "brewed",
+                "definition": "family",
+                "spelling": "brood"
+            },
+            {
+                "homonyms": "bridle",
+                "definition": "pertaining to brides",
+                "spelling": "bridal"
+            },
+            {
+                "homonyms": "bridal",
+                "definition": "horse's headgear",
+                "spelling": "bridle"
+            },
+            {
+                "homonyms": "build",
+                "definition": "has a bill",
+                "spelling": "billed"
+            },
+            {
+                "homonyms": "billed",
+                "definition": "to construct",
+                "spelling": "build"
+            },
+            {
+                "homonyms": "brooch",
+                "definition": "to raise a subject",
+                "spelling": "broach"
+            },
+            {
+                "homonyms": "broach",
+                "definition": "an ornament fastened to clothes",
+                "spelling": "brooch"
+            },
+            {
+                "homonyms": "blue",
+                "definition": "past tense of blow",
+                "spelling": "blew"
+            },
+            {
+                "homonyms": "blew",
+                "definition": "colour of sky",
+                "spelling": "blue"
+            },
+            {
+                "homonyms": "Boer,boor,bore",
+                "definition": "wild pig",
+                "spelling": "boar"
+            },
+            {
+                "homonyms": "boar,boor,bore",
+                "definition": "a South African of Dutch descent",
+                "spelling": "Boer"
+            },
+            {
+                "homonyms": "boar,Boer,bore",
+                "definition": "tasteless buffoon",
+                "spelling": "boor"
+            },
+            {
+                "homonyms": "boar,Boer,boor",
+                "definition": "not interesting",
+                "spelling": "bore"
+            },
+            {
+                "homonyms": "by,bye",
+                "definition": "to purchase",
+                "spelling": "buy"
+            },
+            {
+                "homonyms": "buy,bye",
+                "definition": "near",
+                "spelling": "by"
+            },
+            {
+                "homonyms": "buy,by",
+                "definition": "farewell",
+                "spelling": "bye"
+            },
+            {
+                "homonyms": "bored",
+                "definition": "a plank",
+                "spelling": "board"
+            },
+            {
+                "homonyms": "board",
+                "definition": "not interested",
+                "spelling": "bored"
+            },
+            {
+                "homonyms": "bowled",
+                "definition": "brave",
+                "spelling": "bold"
+            },
+            {
+                "homonyms": "bold",
+                "definition": "knocked over",
+                "spelling": "bowled"
+            },
+            {
+                "homonyms": "illicit",
+                "definition": "to draw out",
+                "spelling": "elicit"
+            },
+            {
+                "homonyms": "elicit",
+                "definition": "unlawful",
+                "spelling": "illicit"
+            },
+            {
+                "homonyms": "fax",
+                "definition": "objective things",
+                "spelling": "facts"
+            },
+            {
+                "homonyms": "facts",
+                "definition": "image transmission technology",
+                "spelling": "fax"
+            },
+            {
+                "homonyms": "feint",
+                "definition": "pass out",
+                "spelling": "faint"
+            },
+            {
+                "homonyms": "faint",
+                "definition": "a weak, misdirected attack",
+                "spelling": "feint"
+            },
+            {
+                "homonyms": "fare",
+                "definition": "even-handed",
+                "spelling": "fair"
+            },
+            {
+                "homonyms": "fair",
+                "definition": "payment",
+                "spelling": "fare"
+            },
+            {
+                "homonyms": "feet",
+                "definition": "an accomplishment",
+                "spelling": "feat"
+            },
+            {
+                "homonyms": "feat",
+                "definition": "plural of foot",
+                "spelling": "feet"
+            },
+            {
+                "homonyms": "fined",
+                "definition": "to locate",
+                "spelling": "find"
+            },
+            {
+                "homonyms": "find",
+                "definition": "penalized",
+                "spelling": "fined"
+            },
+            {
+                "homonyms": "fore,four",
+                "definition": "in place of",
+                "spelling": "for"
+            },
+            {
+                "homonyms": "for,four",
+                "definition": "in front",
+                "spelling": "fore"
+            },
+            {
+                "homonyms": "for,fore",
+                "definition": "number after three",
+                "spelling": "four"
+            },
+            {
+                "homonyms": "forward",
+                "definition": "introduction to a book",
+                "spelling": "foreword"
+            },
+            {
+                "homonyms": "foreword",
+                "definition": "the facing direction",
+                "spelling": "forward"
+            },
+            {
+                "homonyms": "fowl",
+                "definition": "grossly offensive to the senses",
+                "spelling": "foul"
+            },
+            {
+                "homonyms": "foul",
+                "definition": "domestic hen or rooster",
+                "spelling": "fowl"
+            },
+            {
+                "homonyms": "freeze,frieze",
+                "definition": "releases",
+                "spelling": "frees"
+            },
+            {
+                "homonyms": "frees,frieze",
+                "definition": "very cold",
+                "spelling": "freeze"
+            },
+            {
+                "homonyms": "frees,freeze",
+                "definition": "a wall decoration",
+                "spelling": "frieze"
+            },
+            {
+                "homonyms": "jeans",
+                "definition": "a chromosome",
+                "spelling": "genes"
+            },
+            {
+                "homonyms": "genes",
+                "definition": "cotton twill trousers",
+                "spelling": "jeans"
+            },
+            {
+                "homonyms": "gilled,guild",
+                "definition": "to coat with gold",
+                "spelling": "gild"
+            },
+            {
+                "homonyms": "gild,guild",
+                "definition": "having gills",
+                "spelling": "gilled"
+            },
+            {
+                "homonyms": "gild,gilled",
+                "definition": "a craft society",
+                "spelling": "guild"
+            },
+            {
+                "homonyms": "guilt",
+                "definition": "gold-plated",
+                "spelling": "gilt"
+            },
+            {
+                "homonyms": "gilt",
+                "definition": "culpable",
+                "spelling": "guilt"
+            },
+            {
+                "homonyms": "guerrilla",
+                "definition": "large ape",
+                "spelling": "gorilla"
+            },
+            {
+                "homonyms": "gorilla",
+                "definition": "irregular soldier",
+                "spelling": "guerrilla"
+            },
+            {
+                "homonyms": "great",
+                "definition": "a lattice",
+                "spelling": "grate"
+            },
+            {
+                "homonyms": "grate",
+                "definition": "extremely good",
+                "spelling": "great"
+            },
+            {
+                "homonyms": "Finnish",
+                "definition": "to complete",
+                "spelling": "finish"
+            },
+            {
+                "homonyms": "finish",
+                "definition": "from Finland",
+                "spelling": "Finnish"
+            },
+            {
+                "homonyms": "Greece",
+                "definition": "lubricant",
+                "spelling": "grease"
+            },
+            {
+                "homonyms": "grease",
+                "definition": "Mediterranean country",
+                "spelling": "Greece"
+            },
+            {
+                "homonyms": "fur",
+                "definition": "evergreen tree",
+                "spelling": "fir"
+            },
+            {
+                "homonyms": "fir",
+                "definition": "animal hair",
+                "spelling": "fur"
+            },
+            {
+                "homonyms": "grille",
+                "definition": "to sear cook",
+                "spelling": "grill"
+            },
+            {
+                "homonyms": "grill",
+                "definition": "an iron gate or door",
+                "spelling": "grille"
+            },
+            {
+                "homonyms": "flee",
+                "definition": "parasitic insect",
+                "spelling": "flea"
+            },
+            {
+                "homonyms": "flea",
+                "definition": "to runaway",
+                "spelling": "flee"
+            },
+            {
+                "homonyms": "grown",
+                "definition": "sound of displeasure",
+                "spelling": "groan"
+            },
+            {
+                "homonyms": "groan",
+                "definition": "has become larger",
+                "spelling": "grown"
+            },
+            {
+                "homonyms": "flower",
+                "definition": "powdered grain",
+                "spelling": "flour"
+            },
+            {
+                "homonyms": "flour",
+                "definition": "a bloom",
+                "spelling": "flower"
+            },
+            {
+                "homonyms": "guest",
+                "definition": "past tense of guess",
+                "spelling": "guessed"
+            },
+            {
+                "homonyms": "guessed",
+                "definition": "a visitor",
+                "spelling": "guest"
+            },
+            {
+                "homonyms": "its",
+                "definition": "contraction of \"it is\"",
+                "spelling": "it's"
+            },
+            {
+                "homonyms": "it's",
+                "definition": "possessive pronoun",
+                "spelling": "its"
+            },
+            {
+                "homonyms": "hare",
+                "definition": "grows from your head",
+                "spelling": "hair"
+            },
+            {
+                "homonyms": "hair",
+                "definition": "large rabbit",
+                "spelling": "hare"
+            },
+            {
+                "homonyms": "haul",
+                "definition": "a large room",
+                "spelling": "hall"
+            },
+            {
+                "homonyms": "hall",
+                "definition": "to carry",
+                "spelling": "haul"
+            },
+            {
+                "homonyms": "hanger",
+                "definition": "garage for aeroplanes",
+                "spelling": "hangar"
+            },
+            {
+                "homonyms": "hangar",
+                "definition": "from which things hang",
+                "spelling": "hanger"
+            },
+            {
+                "homonyms": "here",
+                "definition": "to listen",
+                "spelling": "hear"
+            },
+            {
+                "homonyms": "hear",
+                "definition": "at this location",
+                "spelling": "here"
+            },
+            {
+                "homonyms": "herd",
+                "definition": "listened to",
+                "spelling": "heard"
+            },
+            {
+                "homonyms": "heard",
+                "definition": "a group of ruminants",
+                "spelling": "herd"
+            },
+            {
+                "homonyms": "led",
+                "definition": "heavy metal",
+                "spelling": "lead"
+            },
+            {
+                "homonyms": "lead",
+                "definition": "guided",
+                "spelling": "led"
+            },
+            {
+                "homonyms": "heroine",
+                "definition": "narcotic",
+                "spelling": "heroin"
+            },
+            {
+                "homonyms": "heroin",
+                "definition": "female hero",
+                "spelling": "heroine"
+            },
+            {
+                "homonyms": "holed",
+                "definition": "to grip",
+                "spelling": "hold"
+            },
+            {
+                "homonyms": "hold",
+                "definition": "full of holes",
+                "spelling": "holed"
+            },
+            {
+                "homonyms": "leek",
+                "definition": "accidental escape of liquid",
+                "spelling": "leak"
+            },
+            {
+                "homonyms": "leak",
+                "definition": "variety of onion",
+                "spelling": "leek"
+            },
+            {
+                "homonyms": "whole",
+                "definition": "round opening",
+                "spelling": "hole"
+            },
+            {
+                "homonyms": "hole",
+                "definition": "entirety",
+                "spelling": "whole"
+            },
+            {
+                "homonyms": "lesson",
+                "definition": "to reduce",
+                "spelling": "lessen"
+            },
+            {
+                "homonyms": "lessen",
+                "definition": "a segment of learning",
+                "spelling": "lesson"
+            },
+            {
+                "homonyms": "our",
+                "definition": "sixty minutes",
+                "spelling": "hour"
+            },
+            {
+                "homonyms": "hour",
+                "definition": "possessed by us",
+                "spelling": "our"
+            },
+            {
+                "homonyms": "lone",
+                "definition": "allow to borrow",
+                "spelling": "loan"
+            },
+            {
+                "homonyms": "loan",
+                "definition": "by itself",
+                "spelling": "lone"
+            },
+            {
+                "homonyms": "lock",
+                "definition": "a lake",
+                "spelling": "loch"
+            },
+            {
+                "homonyms": "loch",
+                "definition": "a security device",
+                "spelling": "lock"
+            },
+            {
+                "homonyms": "idol",
+                "definition": "not working",
+                "spelling": "idle"
+            },
+            {
+                "homonyms": "idle",
+                "definition": "object of worship",
+                "spelling": "idol"
+            },
+            {
+                "homonyms": "isle,aisle",
+                "definition": "I will",
+                "spelling": "I'll"
+            },
+            {
+                "homonyms": "I'll,aisle",
+                "definition": "island",
+                "spelling": "isle"
+            },
+            {
+                "homonyms": "I'll,isle",
+                "definition": "walkway",
+                "spelling": "aisle"
+            },
+            {
+                "homonyms": "insight",
+                "definition": "to provoke",
+                "spelling": "incite"
+            },
+            {
+                "homonyms": "incite",
+                "definition": "understanding",
+                "spelling": "insight"
+            },
+            {
+                "homonyms": "innocents",
+                "definition": "a state without guilt",
+                "spelling": "innocence "
+            },
+            {
+                "homonyms": "innocence ",
+                "definition": "more than one innocent",
+                "spelling": "innocents"
+            },
+            {
+                "homonyms": "no",
+                "definition": "to possess knowledge",
+                "spelling": "know"
+            },
+            {
+                "homonyms": "know",
+                "definition": "negation",
+                "spelling": "no"
+            },
+            {
+                "homonyms": "maid",
+                "definition": "accomplished",
+                "spelling": "made"
+            },
+            {
+                "homonyms": "made",
+                "definition": "young woman",
+                "spelling": "maid"
+            },
+            {
+                "homonyms": "male",
+                "definition": "postal delivery",
+                "spelling": "mail"
+            },
+            {
+                "homonyms": "mail",
+                "definition": "masculine person",
+                "spelling": "male"
+            },
+            {
+                "homonyms": "maze",
+                "definition": "corn",
+                "spelling": "maize"
+            },
+            {
+                "homonyms": "maize",
+                "definition": "puzzle",
+                "spelling": "maze"
+            },
+            {
+                "homonyms": "manor",
+                "definition": "method",
+                "spelling": "manner"
+            },
+            {
+                "homonyms": "manner",
+                "definition": "lord's house",
+                "spelling": "manor"
+            },
+            {
+                "homonyms": "martial",
+                "definition": "to gather",
+                "spelling": "marshal"
+            },
+            {
+                "homonyms": "marshal",
+                "definition": "warlike",
+                "spelling": "martial"
+            },
+            {
+                "homonyms": "mast",
+                "definition": "grouped together",
+                "spelling": "massed"
+            },
+            {
+                "homonyms": "massed",
+                "definition": "sail pole",
+                "spelling": "mast"
+            },
+            {
+                "homonyms": "meet,mete",
+                "definition": "animal flesh",
+                "spelling": "meat"
+            },
+            {
+                "homonyms": "meat,mete",
+                "definition": "to connect",
+                "spelling": "meet"
+            },
+            {
+                "homonyms": "meat,meet",
+                "definition": "a boundary",
+                "spelling": "mete"
+            },
+            {
+                "homonyms": "meddle",
+                "definition": "an award",
+                "spelling": "medal"
+            },
+            {
+                "homonyms": "medal",
+                "definition": "to interfere",
+                "spelling": "meddle"
+            },
+            {
+                "homonyms": "mints",
+                "definition": "chop finely",
+                "spelling": "mince"
+            },
+            {
+                "homonyms": "mince",
+                "definition": "aromatic sweets",
+                "spelling": "mints"
+            },
+            {
+                "homonyms": "mined",
+                "definition": "thinking unit",
+                "spelling": "mind"
+            },
+            {
+                "homonyms": "mind",
+                "definition": "looked for ore",
+                "spelling": "mined"
+            },
+            {
+                "homonyms": "minor",
+                "definition": "someone who works digging",
+                "spelling": "miner"
+            },
+            {
+                "homonyms": "miner",
+                "definition": "Lesser ",
+                "spelling": "minor"
+            },
+            {
+                "homonyms": "nose,knows",
+                "definition": "not any",
+                "spelling": "noes"
+            },
+            {
+                "homonyms": "noes,knows",
+                "definition": "part of face for smelling",
+                "spelling": "nose"
+            },
+            {
+                "homonyms": "noes,nose",
+                "definition": "third person of know",
+                "spelling": "knows"
+            },
+            {
+                "homonyms": "nun",
+                "definition": "not one",
+                "spelling": "none"
+            },
+            {
+                "homonyms": "none",
+                "definition": "woman of God",
+                "spelling": "nun"
+            },
+            {
+                "homonyms": "or,ore",
+                "definition": "boat propulsion system",
+                "spelling": "oar"
+            },
+            {
+                "homonyms": "oar,ore",
+                "definition": "alternative",
+                "spelling": "or"
+            },
+            {
+                "homonyms": "oar,or",
+                "definition": "mineral-laden rock",
+                "spelling": "ore"
+            },
+            {
+                "homonyms": "mist",
+                "definition": "not hit",
+                "spelling": "missed"
+            },
+            {
+                "homonyms": "missed",
+                "definition": "fog",
+                "spelling": "mist"
+            },
+            {
+                "homonyms": "won",
+                "definition": "singularity",
+                "spelling": "one"
+            },
+            {
+                "homonyms": "one",
+                "definition": "victorious",
+                "spelling": "won"
+            },
+            {
+                "homonyms": "mown",
+                "definition": "to groan",
+                "spelling": "moan"
+            },
+            {
+                "homonyms": "moan",
+                "definition": "the lawn is freshly cut",
+                "spelling": "mown"
+            },
+            {
+                "homonyms": "mowed",
+                "definition": "condition",
+                "spelling": "mode"
+            },
+            {
+                "homonyms": "mode",
+                "definition": "a lawn in a welltrimmed condition",
+                "spelling": "mowed"
+            },
+            {
+                "homonyms": "more",
+                "definition": "swampy coastland",
+                "spelling": "moor"
+            },
+            {
+                "homonyms": "moor",
+                "definition": "additional",
+                "spelling": "more"
+            },
+            {
+                "homonyms": "mourning ",
+                "definition": "first part of day",
+                "spelling": "morning "
+            },
+            {
+                "homonyms": "morning ",
+                "definition": "remembering the dead",
+                "spelling": "mourning "
+            },
+            {
+                "homonyms": "mussel",
+                "definition": "fibrous, contracting tissue",
+                "spelling": "muscle"
+            },
+            {
+                "homonyms": "muscle",
+                "definition": "a bivalve mollusc",
+                "spelling": "mussel"
+            },
+            {
+                "homonyms": "navel",
+                "definition": "pertaining to ships",
+                "spelling": "naval"
+            },
+            {
+                "homonyms": "naval",
+                "definition": "pertaining to the belly button",
+                "spelling": "navel"
+            },
+            {
+                "homonyms": "ordnance ",
+                "definition": "a decree",
+                "spelling": "ordinance"
+            },
+            {
+                "homonyms": "ordinance",
+                "definition": "artillery",
+                "spelling": "ordnance "
+            },
+            {
+                "homonyms": "pact",
+                "definition": "placed in a container",
+                "spelling": "packed"
+            },
+            {
+                "homonyms": "packed",
+                "definition": "agreement",
+                "spelling": "pact"
+            },
+            {
+                "homonyms": "pale",
+                "definition": "bucket",
+                "spelling": "pail"
+            },
+            {
+                "homonyms": "pail",
+                "definition": "light coloured",
+                "spelling": "pale"
+            },
+            {
+                "homonyms": "pane",
+                "definition": "it hurts",
+                "spelling": "pain"
+            },
+            {
+                "homonyms": "pain",
+                "definition": "a single panel of glass",
+                "spelling": "pane"
+            },
+            {
+                "homonyms": "pare,pear",
+                "definition": "a set of two",
+                "spelling": "pair"
+            },
+            {
+                "homonyms": "pair,pear",
+                "definition": "cutting down",
+                "spelling": "pare"
+            },
+            {
+                "homonyms": "pair,pare",
+                "definition": "bottom-heavy fruit",
+                "spelling": "pear"
+            },
+            {
+                "homonyms": "past",
+                "definition": "approved; moved on",
+                "spelling": "passed"
+            },
+            {
+                "homonyms": "passed",
+                "definition": "before now",
+                "spelling": "past"
+            },
+            {
+                "homonyms": "patients",
+                "definition": "being willing to wait",
+                "spelling": "patience"
+            },
+            {
+                "homonyms": "patience",
+                "definition": "hospital residents",
+                "spelling": "patients"
+            },
+            {
+                "homonyms": "presents",
+                "definition": "the state of being present",
+                "spelling": "presence"
+            },
+            {
+                "homonyms": "presence",
+                "definition": "gifts",
+                "spelling": "presents"
+            },
+            {
+                "homonyms": "paws",
+                "definition": "hesitate",
+                "spelling": "pause"
+            },
+            {
+                "homonyms": "pause",
+                "definition": "animal feet",
+                "spelling": "paws"
+            },
+            {
+                "homonyms": "piece",
+                "definition": "absence of war",
+                "spelling": "peace"
+            },
+            {
+                "homonyms": "peace",
+                "definition": "A part of a whole",
+                "spelling": "piece"
+            },
+            {
+                "homonyms": "pryed",
+                "definition": "sense of own dignity",
+                "spelling": "pride"
+            },
+            {
+                "homonyms": "pride",
+                "definition": "opened",
+                "spelling": "pryed"
+            },
+            {
+                "homonyms": "peek,pique",
+                "definition": "mountain top",
+                "spelling": "peak"
+            },
+            {
+                "homonyms": "peak,pique",
+                "definition": "secret look",
+                "spelling": "peek"
+            },
+            {
+                "homonyms": "peak,peek",
+                "definition": "ruffled pride",
+                "spelling": "pique"
+            },
+            {
+                "homonyms": "prize",
+                "definition": "wedging open",
+                "spelling": "pries"
+            },
+            {
+                "homonyms": "pries",
+                "definition": "the reward",
+                "spelling": "prize"
+            },
+            {
+                "homonyms": "principle",
+                "definition": "head of school",
+                "spelling": "principal"
+            },
+            {
+                "homonyms": "principal",
+                "definition": "causative force",
+                "spelling": "principle"
+            },
+            {
+                "homonyms": "peddle",
+                "definition": "foot control",
+                "spelling": "pedal"
+            },
+            {
+                "homonyms": "pedal",
+                "definition": "to sell",
+                "spelling": "peddle"
+            },
+            {
+                "homonyms": "pier",
+                "definition": "an equal",
+                "spelling": "peer"
+            },
+            {
+                "homonyms": "peer",
+                "definition": "wharf ",
+                "spelling": "pier"
+            },
+            {
+                "homonyms": "pie",
+                "definition": "3.1416",
+                "spelling": "pi"
+            },
+            {
+                "homonyms": "pi",
+                "definition": "baked food",
+                "spelling": "pie"
+            },
+            {
+                "homonyms": "plaice",
+                "definition": "a location",
+                "spelling": "place"
+            },
+            {
+                "homonyms": "place",
+                "definition": "a fish",
+                "spelling": "plaice"
+            },
+            {
+                "homonyms": "plane",
+                "definition": "not fancy",
+                "spelling": "plain"
+            },
+            {
+                "homonyms": "plain",
+                "definition": "a surface",
+                "spelling": "plane"
+            },
+            {
+                "homonyms": "please",
+                "definition": "cries for help",
+                "spelling": "pleas"
+            },
+            {
+                "homonyms": "pleas",
+                "definition": "good manners",
+                "spelling": "please"
+            },
+            {
+                "homonyms": "poll",
+                "definition": "big stick",
+                "spelling": "pole"
+            },
+            {
+                "homonyms": "pole",
+                "definition": "a voting",
+                "spelling": "poll"
+            },
+            {
+                "homonyms": "pore,pour",
+                "definition": "no money",
+                "spelling": "poor"
+            },
+            {
+                "homonyms": "poor,pour",
+                "definition": "small hole",
+                "spelling": "pore"
+            },
+            {
+                "homonyms": "poor,pore",
+                "definition": "to flow ",
+                "spelling": "pour"
+            },
+            {
+                "homonyms": "prays,preys",
+                "definition": "to commend",
+                "spelling": "praise"
+            },
+            {
+                "homonyms": "praise,preys",
+                "definition": "worships God",
+                "spelling": "prays"
+            },
+            {
+                "homonyms": "praise,prays",
+                "definition": "hunts",
+                "spelling": "preys"
+            },
+            {
+                "homonyms": "precedents,presidents ",
+                "definition": "priority",
+                "spelling": "precedence"
+            },
+            {
+                "homonyms": "precedence,presidents ",
+                "definition": "established course of action",
+                "spelling": "precedents"
+            },
+            {
+                "homonyms": "precedence,precedents ",
+                "definition": "leader of a country",
+                "spelling": "presidents"
+            },
+            {
+                "homonyms": "reign,rein",
+                "definition": "precipitation",
+                "spelling": "rain"
+            },
+            {
+                "homonyms": "rain,rein",
+                "definition": "sovereign rule",
+                "spelling": "reign"
+            },
+            {
+                "homonyms": "rain,reign",
+                "definition": "means of controlling an animal",
+                "spelling": "rein"
+            },
+            {
+                "homonyms": "rays,raze",
+                "definition": "elevate",
+                "spelling": "raise"
+            },
+            {
+                "homonyms": "raise,raze",
+                "definition": "thin beams of light",
+                "spelling": "rays"
+            },
+            {
+                "homonyms": "raise,rays",
+                "definition": "to tear down",
+                "spelling": "raze"
+            },
+            {
+                "homonyms": "rapt,wrapped",
+                "definition": "knocked sharply",
+                "spelling": "rapped"
+            },
+            {
+                "homonyms": "rapped,wrapped",
+                "definition": "spellbound",
+                "spelling": "rapt"
+            },
+            {
+                "homonyms": "rapped,rapt",
+                "definition": "encased in cloth",
+                "spelling": "wrapped"
+            },
+            {
+                "homonyms": "red",
+                "definition": "past tense of reading",
+                "spelling": "read"
+            },
+            {
+                "homonyms": "read",
+                "definition": "a primary colour",
+                "spelling": "red"
+            },
+            {
+                "homonyms": "wrest",
+                "definition": "stop working",
+                "spelling": "rest"
+            },
+            {
+                "homonyms": "rest",
+                "definition": "to takeaway",
+                "spelling": "wrest"
+            },
+            {
+                "homonyms": "rite,wright,write",
+                "definition": "correct",
+                "spelling": "right"
+            },
+            {
+                "homonyms": "right,wright,write",
+                "definition": "ritual",
+                "spelling": "rite"
+            },
+            {
+                "homonyms": "right,rite,write",
+                "definition": "a maker",
+                "spelling": "wright"
+            },
+            {
+                "homonyms": "right,rite,wright",
+                "definition": "to inscribe",
+                "spelling": "write"
+            },
+            {
+                "homonyms": "wring",
+                "definition": "circle around your finger",
+                "spelling": "ring"
+            },
+            {
+                "homonyms": "ring",
+                "definition": "twisting",
+                "spelling": "wring"
+            },
+            {
+                "homonyms": "rode,rowed",
+                "definition": "a broad trail",
+                "spelling": "road"
+            },
+            {
+                "homonyms": "road,rowed",
+                "definition": "past tense of ride",
+                "spelling": "rode"
+            },
+            {
+                "homonyms": "road,rode",
+                "definition": "to propel a boat by oars",
+                "spelling": "rowed"
+            },
+            {
+                "homonyms": "roll",
+                "definition": "part to play",
+                "spelling": "role"
+            },
+            {
+                "homonyms": "role",
+                "definition": "rotate",
+                "spelling": "roll"
+            },
+            {
+                "homonyms": "route",
+                "definition": "underground part of a plant",
+                "spelling": "root"
+            },
+            {
+                "homonyms": "root",
+                "definition": "path of travel",
+                "spelling": "route"
+            },
+            {
+                "homonyms": "rows",
+                "definition": "pretty flower",
+                "spelling": "rose"
+            },
+            {
+                "homonyms": "rose",
+                "definition": "linear arrangement",
+                "spelling": "rows"
+            },
+            {
+                "homonyms": "wrote",
+                "definition": "by memory",
+                "spelling": "rote"
+            },
+            {
+                "homonyms": "rote",
+                "definition": "has written",
+                "spelling": "wrote"
+            },
+            {
+                "homonyms": "sale",
+                "definition": "wind powered travel",
+                "spelling": "sail"
+            },
+            {
+                "homonyms": "sail",
+                "definition": "the act of selling",
+                "spelling": "sale"
+            },
+            {
+                "homonyms": "savour",
+                "definition": "one who saves",
+                "spelling": "saver"
+            },
+            {
+                "homonyms": "saver",
+                "definition": "to relish a taste",
+                "spelling": "savour"
+            },
+            {
+                "homonyms": "seen",
+                "definition": "visual location",
+                "spelling": "scene"
+            },
+            {
+                "homonyms": "scene",
+                "definition": "past tense of saw",
+                "spelling": "seen"
+            },
+            {
+                "homonyms": "skull",
+                "definition": "rowing motion",
+                "spelling": "scull"
+            },
+            {
+                "homonyms": "scull",
+                "definition": "head bone",
+                "spelling": "skull"
+            },
+            {
+                "homonyms": "see",
+                "definition": "ocean",
+                "spelling": "sea"
+            },
+            {
+                "homonyms": "sea",
+                "definition": "to look",
+                "spelling": "see"
+            },
+            {
+                "homonyms": "ceiling",
+                "definition": "closing",
+                "spelling": "sealing"
+            },
+            {
+                "homonyms": "sealing",
+                "definition": "upper surface of room",
+                "spelling": "ceiling"
+            },
+            {
+                "homonyms": "seem",
+                "definition": "row of stitches",
+                "spelling": "seam"
+            },
+            {
+                "homonyms": "seam",
+                "definition": "appears",
+                "spelling": "seem"
+            },
+            {
+                "homonyms": "sees,seize",
+                "definition": "oceans",
+                "spelling": "seas"
+            },
+            {
+                "homonyms": "seas,seize",
+                "definition": "looks",
+                "spelling": "sees"
+            },
+            {
+                "homonyms": "seas,sees",
+                "definition": "to grab",
+                "spelling": "seize"
+            },
+            {
+                "homonyms": "so,sol,sow",
+                "definition": "needle and thread",
+                "spelling": "sew"
+            },
+            {
+                "homonyms": "sew,sol,sow",
+                "definition": "in the manner shown",
+                "spelling": "so"
+            },
+            {
+                "homonyms": "sew,so,sow",
+                "definition": "musical note",
+                "spelling": "sol"
+            },
+            {
+                "homonyms": "sew,so,sol",
+                "definition": "broadcasting seeds",
+                "spelling": "sow"
+            },
+            {
+                "homonyms": "shell",
+                "definition": "is allowed",
+                "spelling": "shall"
+            },
+            {
+                "homonyms": "shall",
+                "definition": "aquatic exoskeleton",
+                "spelling": "shell"
+            },
+            {
+                "homonyms": "sheer",
+                "definition": "to cut or wrench",
+                "spelling": "shear"
+            },
+            {
+                "homonyms": "shear",
+                "definition": "thin; abrupt turn",
+                "spelling": "sheer"
+            },
+            {
+                "homonyms": "sleigh",
+                "definition": "kill",
+                "spelling": "slay"
+            },
+            {
+                "homonyms": "slay",
+                "definition": "snow carriage",
+                "spelling": "sleigh"
+            },
+            {
+                "homonyms": "slight",
+                "definition": "cunning skill",
+                "spelling": "sleight"
+            },
+            {
+                "homonyms": "sleight",
+                "definition": "not much",
+                "spelling": "slight"
+            },
+            {
+                "homonyms": "sore",
+                "definition": "fly",
+                "spelling": "soar"
+            },
+            {
+                "homonyms": "soar",
+                "definition": "hurt",
+                "spelling": "sore"
+            },
+            {
+                "homonyms": "sword",
+                "definition": "sailed through the air",
+                "spelling": "soared"
+            },
+            {
+                "homonyms": "soared",
+                "definition": "long fighting blade",
+                "spelling": "sword"
+            },
+            {
+                "homonyms": "soulless",
+                "definition": "comfort",
+                "spelling": "solace"
+            },
+            {
+                "homonyms": "solace",
+                "definition": "lacking a soul",
+                "spelling": "soulless"
+            },
+            {
+                "homonyms": "soul",
+                "definition": "only",
+                "spelling": "sole"
+            },
+            {
+                "homonyms": "sole",
+                "definition": "immortal part of a person",
+                "spelling": "soul"
+            },
+            {
+                "homonyms": "tax",
+                "definition": "small nails",
+                "spelling": "tacks"
+            },
+            {
+                "homonyms": "tacks",
+                "definition": "governmental tithe",
+                "spelling": "tax"
+            },
+            {
+                "homonyms": "tale",
+                "definition": "spinal appendage",
+                "spelling": "tail"
+            },
+            {
+                "homonyms": "tail",
+                "definition": "story",
+                "spelling": "tale"
+            },
+            {
+                "homonyms": "sun",
+                "definition": "male child",
+                "spelling": "son"
+            },
+            {
+                "homonyms": "son",
+                "definition": "star",
+                "spelling": "sun"
+            },
+            {
+                "homonyms": "taut",
+                "definition": "past tense of teach",
+                "spelling": "taught"
+            },
+            {
+                "homonyms": "taught",
+                "definition": "stretched tight",
+                "spelling": "taut"
+            },
+            {
+                "homonyms": "suit",
+                "definition": "black residue of burning",
+                "spelling": "soot"
+            },
+            {
+                "homonyms": "soot",
+                "definition": "clothes",
+                "spelling": "suit"
+            },
+            {
+                "homonyms": "stare",
+                "definition": "a step",
+                "spelling": "stair"
+            },
+            {
+                "homonyms": "stair",
+                "definition": "look intently",
+                "spelling": "stare"
+            },
+            {
+                "homonyms": "tee",
+                "definition": "herbal infusion",
+                "spelling": "tea"
+            },
+            {
+                "homonyms": "tea",
+                "definition": "golf ball prop",
+                "spelling": "tee"
+            },
+            {
+                "homonyms": "steak",
+                "definition": "wooden pole",
+                "spelling": "stake"
+            },
+            {
+                "homonyms": "stake",
+                "definition": "slice of meat",
+                "spelling": "steak"
+            },
+            {
+                "homonyms": "teem",
+                "definition": "a group working together",
+                "spelling": "team"
+            },
+            {
+                "homonyms": "team",
+                "definition": "to swarm",
+                "spelling": "teem"
+            },
+            {
+                "homonyms": "tier",
+                "definition": "eyeball lubricant",
+                "spelling": "tear"
+            },
+            {
+                "homonyms": "tear",
+                "definition": "a horizontal row",
+                "spelling": "tier"
+            },
+            {
+                "homonyms": "stationery ",
+                "definition": "not moving",
+                "spelling": "stationary "
+            },
+            {
+                "homonyms": "stationary ",
+                "definition": "writing equipment",
+                "spelling": "stationery "
+            },
+            {
+                "homonyms": "steel",
+                "definition": "take unlawfully",
+                "spelling": "steal"
+            },
+            {
+                "homonyms": "steal",
+                "definition": "iron alloy",
+                "spelling": "steel"
+            },
+            {
+                "homonyms": "story",
+                "definition": "horizontal divisions of a building",
+                "spelling": "storey"
+            },
+            {
+                "homonyms": "storey",
+                "definition": "a narrative tale",
+                "spelling": "story"
+            },
+            {
+                "homonyms": "strait",
+                "definition": "not crooked",
+                "spelling": "straight"
+            },
+            {
+                "homonyms": "straight",
+                "definition": "narrow waterway",
+                "spelling": "strait"
+            },
+            {
+                "homonyms": "swayed",
+                "definition": "split leather",
+                "spelling": "suede"
+            },
+            {
+                "homonyms": "suede",
+                "definition": "curved; convinced",
+                "spelling": "swayed"
+            },
+            {
+                "homonyms": "sweet",
+                "definition": "ensemble",
+                "spelling": "suite"
+            },
+            {
+                "homonyms": "suite",
+                "definition": "sugary",
+                "spelling": "sweet"
+            },
+            {
+                "homonyms": "Sunday",
+                "definition": "ice cream with syrup on it",
+                "spelling": "sundae"
+            },
+            {
+                "homonyms": "sundae",
+                "definition": "day after Saturday",
+                "spelling": "Sunday"
+            },
+            {
+                "homonyms": "there,they're",
+                "definition": "belonging to them",
+                "spelling": "their"
+            },
+            {
+                "homonyms": "their,they're",
+                "definition": "a place",
+                "spelling": "there"
+            },
+            {
+                "homonyms": "their,there",
+                "definition": "they are",
+                "spelling": "they're"
+            },
+            {
+                "homonyms": "through",
+                "definition": "to propel by hand",
+                "spelling": "threw"
+            },
+            {
+                "homonyms": "threw",
+                "definition": "from end to end",
+                "spelling": "through"
+            },
+            {
+                "homonyms": "throws",
+                "definition": "spasms of pain",
+                "spelling": "throes"
+            },
+            {
+                "homonyms": "throes",
+                "definition": "discharging through the air",
+                "spelling": "throws"
+            },
+            {
+                "homonyms": "thrown",
+                "definition": "the royal seat",
+                "spelling": "throne"
+            },
+            {
+                "homonyms": "throne",
+                "definition": "was hurled",
+                "spelling": "thrown"
+            },
+            {
+                "homonyms": "tied",
+                "definition": "flow of oceans",
+                "spelling": "tide"
+            },
+            {
+                "homonyms": "tide",
+                "definition": "passed tense of tie",
+                "spelling": "tied"
+            },
+            {
+                "homonyms": "too,two",
+                "definition": "towards",
+                "spelling": "to"
+            },
+            {
+                "homonyms": "to,two",
+                "definition": "also",
+                "spelling": "too"
+            },
+            {
+                "homonyms": "to,too",
+                "definition": "a couple",
+                "spelling": "two"
+            },
+            {
+                "homonyms": "wore",
+                "definition": "large scale armed conflict",
+                "spelling": "war"
+            },
+            {
+                "homonyms": "war",
+                "definition": "past tense of wear",
+                "spelling": "wore"
+            },
+            {
+                "homonyms": "toed,towed",
+                "definition": "frog",
+                "spelling": "toad"
+            },
+            {
+                "homonyms": "toad,towed",
+                "definition": "having toes",
+                "spelling": "toed"
+            },
+            {
+                "homonyms": "toad,toed",
+                "definition": "pulled ahead",
+                "spelling": "towed"
+            },
+            {
+                "homonyms": "wear,where",
+                "definition": "merchandize",
+                "spelling": "ware"
+            },
+            {
+                "homonyms": "ware,where",
+                "definition": "attire",
+                "spelling": "wear"
+            },
+            {
+                "homonyms": "ware,wear",
+                "definition": "a place",
+                "spelling": "where"
+            },
+            {
+                "homonyms": "tow",
+                "definition": "forepart of the foot",
+                "spelling": "toe"
+            },
+            {
+                "homonyms": "toe",
+                "definition": "to pull ahead",
+                "spelling": "tow"
+            },
+            {
+                "homonyms": "weigh,whey",
+                "definition": "path or direction",
+                "spelling": "way"
+            },
+            {
+                "homonyms": "way,whey",
+                "definition": "to measure weight",
+                "spelling": "weigh"
+            },
+            {
+                "homonyms": "way,weigh",
+                "definition": "watery part of milk",
+                "spelling": "whey"
+            },
+            {
+                "homonyms": "tolled",
+                "definition": "what was spoken",
+                "spelling": "told"
+            },
+            {
+                "homonyms": "told",
+                "definition": "a bell was rung",
+                "spelling": "tolled"
+            },
+            {
+                "homonyms": "week",
+                "definition": "not strong",
+                "spelling": "weak"
+            },
+            {
+                "homonyms": "weak",
+                "definition": "seven days",
+                "spelling": "week"
+            },
+            {
+                "homonyms": "tract",
+                "definition": "having tracks",
+                "spelling": "tracked"
+            },
+            {
+                "homonyms": "tracked",
+                "definition": "a plot of land",
+                "spelling": "tract"
+            },
+            {
+                "homonyms": "trust",
+                "definition": "tied up",
+                "spelling": "trussed"
+            },
+            {
+                "homonyms": "trussed",
+                "definition": "faith",
+                "spelling": "trust"
+            },
+            {
+                "homonyms": "whether",
+                "definition": "meteorological conditions",
+                "spelling": "weather"
+            },
+            {
+                "homonyms": "weather",
+                "definition": "either",
+                "spelling": "whether"
+            },
+            {
+                "homonyms": "vane,vein",
+                "definition": "worthless",
+                "spelling": "vain"
+            },
+            {
+                "homonyms": "vain,vein",
+                "definition": "flat piece moving with the air",
+                "spelling": "vane"
+            },
+            {
+                "homonyms": "vain,vane",
+                "definition": "blood vessel",
+                "spelling": "vein"
+            },
+            {
+                "homonyms": "versus",
+                "definition": "paragraphs",
+                "spelling": "verses"
+            },
+            {
+                "homonyms": "verses",
+                "definition": "against",
+                "spelling": "versus"
+            },
+            {
+                "homonyms": "waste",
+                "definition": "between ribs and hips",
+                "spelling": "waist"
+            },
+            {
+                "homonyms": "waist",
+                "definition": "make ill use of",
+                "spelling": "waste"
+            },
+            {
+                "homonyms": "weight",
+                "definition": "remain in readiness",
+                "spelling": "wait"
+            },
+            {
+                "homonyms": "wait",
+                "definition": "an amount of heaviness",
+                "spelling": "weight"
+            },
+            {
+                "homonyms": "wave",
+                "definition": "give up rights",
+                "spelling": "waive"
+            },
+            {
+                "homonyms": "waive",
+                "definition": "undulating motion",
+                "spelling": "wave"
+            },
+            {
+                "homonyms": "whose",
+                "definition": "who is",
+                "spelling": "who's"
+            },
+            {
+                "homonyms": "who's",
+                "definition": "belonging to whom",
+                "spelling": "whose"
+            },
+            {
+                "homonyms": "would",
+                "definition": "what trees are made of",
+                "spelling": "wood"
+            },
+            {
+                "homonyms": "wood",
+                "definition": "will do",
+                "spelling": "would"
+            },
+            {
+                "homonyms": "you,ewe",
+                "definition": "a type of tree",
+                "spelling": "yew"
+            },
+            {
+                "homonyms": "yew,ewe",
+                "definition": "the second person",
+                "spelling": "you"
+            },
+            {
+                "homonyms": "yew,you",
+                "definition": "female sheep",
+                "spelling": "ewe"
+            },
+            {
+                "homonyms": "yolk",
+                "definition": "oxen harness",
+                "spelling": "yoke"
+            },
+            {
+                "homonyms": "yoke",
+                "definition": "yellow egg centre",
+                "spelling": "yolk"
+            },
+            {
+                "homonyms": "you're,your",
+                "definition": "the past",
+                "spelling": "yore"
+            },
+            {
+                "homonyms": "yore,your",
+                "definition": "\"you are\"",
+                "spelling": "you're"
+            },
+            {
+                "homonyms": "yore,you're",
+                "definition": "belonging to you",
+                "spelling": "your"
+            }
+        ];
+        //#endregion
+            //END OF HOMONYMS
+            function openOptions(){
+                document.getElementById("options").style.width="400px";
+            }
+            function closeOptions(){
+                document.getElementById("options").style.width="0px";
+            }
+            function closeModal(){
+                document.getElementById("errorModal").style.display="none";
+                loadFunction();
+            }
+            function loadFunction(){
+                document.getElementById("listening").style.display = "none";
+                document.getElementById("homonymDiv").style.display = "none";
+                document.getElementById("word").style.display = "none";
+                document.getElementById("home").style.display ="block";
+            }
+
+            function setColourScheme(colour){
+                document.getElementById("colourscheme").href=colour+".css";
+            }
+
+            function setFont(font){
+                document.body.style.fontFamily = font;
+            }
+
+            function startRecognition(){
+                document.getElementById("homonymDiv").style.display = "none";
+                document.getElementById("word").style.display = "none";
+                document.getElementById("home").style.display = "none";
+                document.getElementById("listening").style.display = "block";
+                // create a SpeechRecognition object
+                const recognition = new webkitSpeechRecognition();
+                
+                
+              
+               
+               
+                // event handler when a word or phrase has been positively recognized
+                recognition.onresult =function(event){
+                    var word = event.results[0][0].transcript;
+
+                   
+                    var index = homonyms.findIndex(function(item, i){
+                    return item.spelling === word
+                    });
+                    if(index != -1){
+                        var tableWords = homonyms[index].homonyms;
+                        
+                        if(tableWords.includes(",")){
+                            
+                            var _item = [homonyms[index].spelling];
+                            var otherwords = tableWords.split(",");
+                            var items= _item.concat(otherwords); 
+                            
+                            var definitions=[homonyms[index].definition]
+                            for(i = 0; i < otherwords.length; i++){
+                                var wordToFind = otherwords[i].trim();
+                                var pIndex = homonyms.findIndex(function(item, i){
+                                return item.spelling === wordToFind
+                                });
+                                
+                                definitions =definitions.concat(homonyms[pIndex].definition);
+                            }
+                            
+                        }else{
+                            
+                            var items =  [homonyms[index].spelling , tableWords];
+                            var pIndex = homonyms.findIndex(function(item, i){
+                                return item.spelling === tableWords
+                                });
+                            var definitions =[homonyms[index].definition, homonyms[pIndex].definition];
+                        }
+                        
+                        var Table = "<table><tr>";
+                        for(i = 0; i < items.length; i++){
+                            Table+="<th>"+items[i]+"</th>";
+                        }
+                        Table+="</tr><tr>";
+                            for(i = 0; i < items.length; i++){
+                            Table+="<td class=\"definition\">"+definitions[i]+"</td>";
+                        }
+                        Table+="</tr><tr>";
+                            for(i = 0; i < items.length; i++){
+                            Table+='<td> <button class="selectBtn" onclick="loadSpellingWindow(\''+items[i].replace(" ", "")+'\')"><div class="tickIcon"><i class="fa fa-check" aria-hidden="true"></i></div></td>';
+                        }  
+                        Table+="</tr></table>";
+                        
+                        document.getElementById("homonymTable").innerHTML =Table;
+                        document.getElementById("listening").style.display = "none";
+                        document.getElementById("homonymDiv").style.display = "block";
+                    }
+                    else{
+                        loadSpellingWindow(word);
+                    }
+                    
+                   
+                }
+
+                recognition.onerror=function(event){
+                    document.getElementById("errorModal").style.display="block";
+                    
+                }
+
+                recognition.onnomatch=function(event){
+                    window.alert("NO MATCH TEST");
+                }
+
+                recognition.start();
+
+                }
+
+                function loadSpellingWindow(word){
+                    var word = word;
+                    document.getElementById("wordP").innerHTML=word;
+                        document.getElementById("listening").style.display = "none";
+                        document.getElementById("homonymDiv").style.display = "none";
+                        document.getElementById("word").style.display = "block";
+                        document.getElementById('soundBtn').setAttribute( "onClick", "playSpellingSpeech(\""+word+"\")" );
+                    playSpellingSpeech(word);
+                   
+                }
+
+                function playSpellingSpeech(word){
+                    var audioSpelling =word.split("").join(" ");
+                
+                    let speech = new SpeechSynthesisUtterance(audioSpelling);
+                    speech.rate=0.7;
+                    speechSynthesis.speak(speech);
+                    }
+        </script>
+    </body>
 </html>
