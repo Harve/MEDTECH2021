@@ -2302,7 +2302,7 @@
             }
 
             function loadSettings(){
-                alert(document.cookie);
+                
                 if(document.cookie != null){
                 var loadstring = document.cookie;
                 var colour = loadstring.substring(loadstring.indexOf("colour=")+7,loadstring.indexOf(","));
@@ -2310,15 +2310,17 @@
                 var speed = loadstring.substring(loadstring.indexOf("speed=")+7,loadstring.indexOf("'")-1);
                 var handsfree = loadstring.substring(loadstring.indexOf("handsfree=")+11,loadstring.indexOf("/")-1);
 
-                alert(colour);
-                alert(font);
                 
-                /*
+                
+                
                 document.getElementById("colourscheme").href=colour+".css";
                 document.body.style.fontFamily = font;
                 document.getElementById("speechSpeed").value =speed;
-
-                document.getElementById("hfToggle").checked = true; */
+                switch(handsfree){
+                    case 1:var check=true; break;
+                    case 0:var check=false; break;
+                }
+                document.getElementById("hfToggle").checked = check; 
                 }
             }
 
