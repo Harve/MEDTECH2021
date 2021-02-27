@@ -2290,7 +2290,7 @@
             function saveSettings(){
                 
                 let colour = document.getElementById("colourscheme").href;
-                var n = colour.lastIndexOf("/");
+                var n = colour.lastIndexOf("/")+1;
                 colour=colour.substring(n,colour.length-4);
                 var handsfree = 0;
                 if (document.getElementById("hfToggle").checked == true){ handsfree=1;}
