@@ -27,7 +27,11 @@
                     <a onclick="setColourScheme('blue')">Blue</a>
                     <a onclick="setColourScheme('dark')">Dark</a>
                 </div>
-                <br>
+                
+                
+            </div>
+            <br>
+            <div class="fontOptions">
                 <b style="color: white; font-size: 20px;">Font</b>
                 <div class="dropdown-content">
                     <a style="font-family: Lucida Console;" onclick="setFont('Lucida Console')">Lucida Console</a>
@@ -35,11 +39,15 @@
                     <a style="font-family: Century Gothic;"onclick="setFont('Century Gothic')">Century Gothic</a>
                 </div>
             </div>
-            <div class="fontOptions">
-
-            </div>
+            <br>
             <div class="speechOptions">
-
+                <b style="color: white; font-size: 20px;">Speech Speed</b>
+                <input class="slider" id="speechSpeed" type="range" min="1" max="10" value="7"><br><br>
+                <b style="color: white; font-size: 20px;">Hands Free Mode</b><br>
+                <label class="switch">
+                    <input id="hfToggle" onclick="toggleHandsFree()" type="checkbox">
+                    <span class="switchslider round"></span>
+                  </label>
             </div>
         </div>
         <!--START MENU-->
@@ -2223,6 +2231,8 @@
         ];
         //#endregion
             //END OF HOMONYMS
+            
+
             function openOptions(){
                 document.getElementById("options").style.width="400px";
             }
@@ -2234,6 +2244,7 @@
                 loadFunction();
             }
             function loadFunction(){
+                
                 document.getElementById("listening").style.display = "none";
                 document.getElementById("homonymDiv").style.display = "none";
                 document.getElementById("word").style.display = "none";
@@ -2242,10 +2253,55 @@
 
             function setColourScheme(colour){
                 document.getElementById("colourscheme").href=colour+".css";
+                saveSettings();
             }
 
             function setFont(font){
                 document.body.style.fontFamily = font;
+                saveSettings();
+            }
+
+            function toggleHandsFree(){
+                saveSettings();
+                if (document.getElementById("hfToggle").checked == true){
+                    const recognition = new webkitSpeechRecognition();
+                
+                
+              
+               
+               
+                // event handler when a word or phrase has been positively recognized
+                recognition.onresult =function(event){
+                    var word = event.results[0][0].transcript;
+                    if(word=="start"){
+                        startRecognition();
+                    }
+                }
+                recognition.onerror=function(event){
+                    document.getElementById("errorModal").style.display="block";
+                    
+                }
+                recognition.start();
+                } else {
+                    
+                }
+            }
+
+            function saveSettings(){
+                
+                let colour = document.getElementById("colourscheme").href;
+                colour=colour.substring(0,colour.length-4);
+                var handsfree = 0;
+                if (document.getElementById("hfToggle").checked == true){ handsfree=1;}
+                document.cookie = "colour=" + colour;
+                document.cookie = "font=" + document.body.style.fontFamily;
+                document.cookie = "speed=" + document.getElementById("speechSpeed").value;
+                document.cookie = "handsfree=" + handsfree;
+                alert( document.cookie);
+            }
+
+            function loadSettings(){
+                alert(document.cookie);
             }
 
             function startRecognition(){
@@ -2349,7 +2405,7 @@
                     var audioSpelling =word.split("").join(" ");
                 
                     let speech = new SpeechSynthesisUtterance(audioSpelling);
-                    speech.rate=0.7;
+                    speech.rate=(document.getElementById("speechSpeed").value/10);
                     speechSynthesis.speak(speech);
                     }
         </script>
