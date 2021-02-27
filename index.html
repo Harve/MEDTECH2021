@@ -2303,7 +2303,7 @@
 
             function loadSettings(){
                 
-                if(document.cookie != null){
+                if(document.cookie != ""){
                 var loadstring = document.cookie;
                 var colour = loadstring.substring(loadstring.indexOf("colour=")+7,loadstring.indexOf(","));
                 var font = loadstring.substring(loadstring.indexOf("font=")+6,loadstring.indexOf(".")-1);
