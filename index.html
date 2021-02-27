@@ -2302,19 +2302,23 @@
             }
 
             function loadSettings(){
+                if(document.cookie == null){
                 var loadstring = document.cookie;
                 var colour = loadstring.substring(loadstring.indexOf("colour=")+8,loadstring.indexOf(",")-1);
                 var font = loadstring.substring(loadstring.indexOf("font=")+6,loadstring.indexOf(".")-1);
                 var speed = loadstring.substring(loadstring.indexOf("speed=")+7,loadstring.indexOf("'")-1);
                 var handsfree = loadstring.substring(loadstring.indexOf("handsfree=")+11,loadstring.indexOf("/")-1);
 
-                alert(colour+font+speed+handsfree);
+                alert(colour);
+                alert(font);
+                
                 /*
                 document.getElementById("colourscheme").href=colour+".css";
                 document.body.style.fontFamily = font;
                 document.getElementById("speechSpeed").value =speed;
 
                 document.getElementById("hfToggle").checked = true; */
+                }
             }
 
             function startRecognition(){
