@@ -2244,7 +2244,7 @@
                 loadFunction();
             }
             function loadFunction(){
-                
+                loadSettings();
                 document.getElementById("listening").style.display = "none";
                 document.getElementById("homonymDiv").style.display = "none";
                 document.getElementById("word").style.display = "none";
@@ -2298,7 +2298,7 @@
                 document.cookie = "font=" + document.body.style.fontFamily+".";
                 document.cookie = "speed=" + document.getElementById("speechSpeed").value+"'";
                 document.cookie = "handsfree=" + handsfree+"/";
-                alert( document.cookie);
+               
             }
 
             function loadSettings(){
