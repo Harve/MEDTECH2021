@@ -2234,7 +2234,14 @@
             
 
             function openOptions(){
-                document.getElementById("options").style.width="400px";
+                var screenwidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                if(screenwidth >800){
+                    document.getElementById("options").style.width="400px";
+                }
+                else{
+                    document.getElementById("options").style.width=screenwidth+"px";
+                }
+               
             }
             function closeOptions(){
                 document.getElementById("options").style.width="0px";
