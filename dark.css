@@ -11,15 +11,10 @@ button:hover{
 }
 .window{
     background-color: #171717;
-    border-radius: 10%;
-    text-align: center;
+    
+    
     color: white;
-    margin-top: 0%;
-    margin-left: -25%;
-    position: absolute;
-    width: 50%;
-    height: 75%;
-    left: 50%;
+    
 }
 .wordTitle{
     font-size: 75px;
