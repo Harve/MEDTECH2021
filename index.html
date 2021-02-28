@@ -57,8 +57,9 @@
         </div>
         <!--LISTENING MENU-->
         <div id="listening"  class="window">
-            <div class="wordTitle">Listening</div>
-            <div class="micIcon"><i class="fa fa-microphone" aria-hidden="true"></i></div>
+            <div id="listeningTitle" class="listenTitle">Listening</div>
+            <div id="micAnimation" class="micAnimated"><i class="fa fa-microphone" aria-hidden="true"></i></div>
+            <div id="loading" class="loader"></div>
         </div>
         <!--HOMONYM MENU-->
         <div id="homonymDiv"  class="window">
@@ -2345,6 +2346,7 @@
                
                 // event handler when a word or phrase has been positively recognized
                 recognition.onresult =function(event){
+                    
                     var word = event.results[0][0].transcript;
 
                    

@@ -6,8 +6,15 @@ button:hover{
 }
 .window{
     background-color: #8f8fbc;
-
+}
 .wordTitle{
-    font-size: 75px;
+    
+    color: #292759;
+}
+.listenTitle{
+    
+    color: #292759;
+}
+.micAnimated{
     color: #292759;
 }

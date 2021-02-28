@@ -17,7 +17,11 @@ button:hover{
     
 }
 .wordTitle{
-    font-size: 75px;
+    
+    color: white;
+}
+.listenTitle{
+    
     color: white;
 }
 .optionBtn{
@@ -31,3 +35,19 @@ button:hover{
 .micIcon{
     color: white;
 }
+@keyframes pulse {
+    0% {
+      
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0);
+    }
+  
+    70% {
+      
+      text-shadow: 0px 0px 50px rgba(255, 255, 255, 0.9);
+    }
+  
+    100% {
+      
+      text-shadow: 0px 0px 70px rgb(255, 255, 255,0.3);
+    }
+  }

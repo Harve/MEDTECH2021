@@ -11,6 +11,14 @@ button:hover{
     
 }
 .wordTitle{
-    font-size: 75px;
+    
+    color: #275929;
+}
+.listenTitle{
+    
+    color: #275929;
+}
+
+.micAnimated{
     color: #275929;
 }

@@ -74,6 +74,14 @@ body{
     background-color: white;
     color: dimgray;
 }
+.wordTitle{
+  font-size: 100px;
+  margin-top: 10%;
+}
+.listenTitle{
+  font-size: 100px;
+  margin-top: 10%;
+}
 
 .closeBtn{
     
@@ -96,8 +104,11 @@ body{
 .optionsIcon{
     font-size: 100px;
 }
-.micIcon{
-    font-size: 10px;
+.micAnimated{
+    margin-top: 30%;
+    font-size: 250px;
+    animation: pulse 1.5s infinite;
+    
 }
 
 
@@ -312,6 +323,23 @@ table td{
       margin-bottom: 10px;
     }
 
+    @keyframes pulse {
+      0% {
+        
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+      }
+    
+      70% {
+        
+        text-shadow: 0px 0px 50px rgba(0, 0, 0, 0.3);
+      }
+    
+      100% {
+        
+        text-shadow: 0px 0px 80px rgba(0, 0, 0, 0.1);
+      }
+    }
+
 @media screen and (max-width:2560px) {
     .startBtn{ padding:150px 200px;
     }
@@ -323,7 +351,11 @@ table td{
 
 @media only screen and (max-width:1100px) {
     .window{width: 90%;
-    margin-left: -45%;}
+    margin-left: -45%;
+  margin-top: 10%;}
+  .optionsIcon{
+    font-size: 150px;
+  }
     .startBtn{ padding:150px;}
     .optionTitle{font-size: 50px; margin-top: 40px;}
     .closeBtn{font-size: 60px;
