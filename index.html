@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body onload="loadFunction()">
+        <div id="snackbar">Settings Applied</div>
         <div id="errorModal" class="modal">
 
             <!-- Modal content -->
@@ -2262,11 +2263,23 @@
             function setColourScheme(colour){
                 document.getElementById("colourscheme").href=colour+".css";
                 saveSettings();
+                var screenwidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                if(screenwidth <1100){
+                    var x = document.getElementById("snackbar");
+                    x.className = "show";
+                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                }
             }
 
             function setFont(font){
                 document.body.style.fontFamily = font;
                 saveSettings();
+                var screenwidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                if(screenwidth <1100){
+                    var x = document.getElementById("snackbar");
+                    x.className = "show";
+                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                }
             }
 
             function toggleHandsFree(){
