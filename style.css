@@ -86,7 +86,7 @@ body{
  
   
     padding: 5px;
-    font-size: 20px;
+    font-size: 40px;
 }
 .closeBtn:hover{
     background-color: black;
@@ -309,6 +309,7 @@ table td{
     .optionTitle{
       color: white; 
       font-size: 20px;
+      margin-bottom: 10px;
     }
 
 @media screen and (max-width:2560px) {
@@ -324,10 +325,10 @@ table td{
     .window{width: 90%;
     margin-left: -45%;}
     .startBtn{ padding:150px;}
-    .optionTitle{font-size: 45px; margin-top: 40px;}
-    .closeBtn{font-size: 50px;
+    .optionTitle{font-size: 50px; margin-top: 40px;}
+    .closeBtn{font-size: 60px;
     margin-bottom: 20px;}
-    .sidenav a {font-size: 30px;}
+    .sidenav a {font-size: 35px;}
     .switchslider{
       width: 120px;
       height: 60px;
