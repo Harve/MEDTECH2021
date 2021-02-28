@@ -21,7 +21,7 @@
         <div id="options" class="sidenav">
             <button class="closeBtn" onclick="closeOptions()"><i class="fa fa-times" aria-hidden="true"></i></button>
             <div class="colourOptions">
-                <b style="color: white; font-size: 20px;">Colour Scheme</b>
+                <div class="optionTitle"><b>Colour Scheme</b></div>
                 <div class="dropdown-content">
                     <a onclick="setColourScheme('green')">Green</a>
                     <a onclick="setColourScheme('blue')">Blue</a>
@@ -32,7 +32,7 @@
             </div>
             <br>
             <div class="fontOptions">
-                <b style="color: white; font-size: 20px;">Font</b>
+                <div class="optionTitle"><b>Font</b></div>
                 <div class="dropdown-content">
                     <a style="font-family: Lucida Console;" onclick="setFont('Lucida Console')">Lucida Console</a>
                     <a style="font-family: Arial;"onclick="setFont('Arial')">Arial</a>
@@ -41,9 +41,9 @@
             </div>
             <br>
             <div class="speechOptions">
-                <b style="color: white; font-size: 20px;">Speech Speed</b>
+                <div class="optionTitle"><b>Speech Speed</b></div>
                 <input class="slider" id="speechSpeed" type="range" min="1" max="10" value="7"><br><br>
-                <b style="color: white; font-size: 20px;">Hands Free Mode</b><br>
+                <div class="optionTitle"><b>Hands Free Mode</b></div><br>
                 <label class="switch">
                     <input id="hfToggle" onclick="toggleHandsFree()" type="checkbox">
                     <span class="switchslider round"></span>
