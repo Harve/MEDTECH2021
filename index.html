@@ -2342,10 +2342,10 @@
                 var loadstring = document.cookie;
                 var colour = loadstring.substring(loadstring.indexOf("colour=")+7,loadstring.indexOf(","));
                 var font = loadstring.substring(loadstring.indexOf("font=")+5,loadstring.indexOf(".")-1);
-                var spacing = loadstring.substring(loadstring.indexOf("spacing=")+7,loadstring.indexOf("|")-1);
+                var spacing = loadstring.substring(loadstring.indexOf("spacing=")+8,loadstring.indexOf("|"));
                 var speed = loadstring.substring(loadstring.indexOf("speed=")+7,loadstring.indexOf("'")-1);
                 var handsfree = loadstring.substring(loadstring.indexOf("handsfree=")+11,loadstring.indexOf("/")-1);
-
+                alert(font);
                 alert(spacing);
                 
                 
