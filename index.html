@@ -4,6 +4,8 @@
         <link rel="stylesheet" href="style.css">
         <link id="colourscheme" rel="stylesheet" href="green.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Andika&family=Mulish&family=Quicksand:wght@500&display=swap" rel="stylesheet"> 
     </head>
     <body onload="loadFunction()">
         <div id="snackbar">Settings Applied</div>
@@ -35,15 +37,17 @@
             <div class="fontOptions">
                 <div class="optionTitle"><b>Font</b></div>
                 <div class="dropdown-content">
-                    <a style="font-family: Lucida Console;" onclick="setFont('Lucida Console')">Lucida Console</a>
-                    <a style="font-family: Arial;"onclick="setFont('Arial')">Arial</a>
-                    <a style="font-family: Century Gothic;"onclick="setFont('Century Gothic')">Century Gothic</a>
-                </div>
+                    <a style="font-family: Quicksand;" onclick="setFont('Quicksand')">Quicksand</a>
+                    <a style="font-family: Andika;"onclick="setFont('Andika')">Andika</a>
+                    <a style="font-family: Mulish;"onclick="setFont('Mulish')">Mulish</a>
+                </div><br>
+                <div class="optionTitle"><b>Letter Spacing</b></div>
+                <input class="slider" id="letterSpacing" type="range" min="1" max="8" value="2" onchange="updateLetterSpacing()"><br><br>
             </div>
             <br>
             <div class="speechOptions">
                 <div class="optionTitle"><b>Speech Speed</b></div>
-                <input class="slider" id="speechSpeed" type="range" min="1" max="10" value="7"><br><br>
+                <input class="slider" id="speechSpeed" type="range" min="1" max="10" value="7" onchange="saveSettings()"><br><br>
                 <div class="optionTitle"><b>Hands Free Mode</b></div><br>
                 <label class="switch">
                     <input id="hfToggle" onclick="toggleHandsFree()" type="checkbox">
@@ -72,7 +76,7 @@
         <div id="word"  class="window">
             <button id="soundBtn" class="soundBtn" onclick="playSpellingSpeech(word)"><div class="soundIcon"><i class="fa fa-volume-up" aria-hidden="true"></i></div></button>
             <div class="wordTitle"><p id="wordP"></p></div>
-            <p id="wordDef"></p>
+            
             
             <button class="startBtn" onclick="startRecognition()"><div class="micIcon"><i class="fa fa-microphone" aria-hidden="true"></i></div></i>
         </div>
@@ -2234,6 +2238,7 @@
         //#endregion
             //END OF HOMONYMS
             
+           
 
             function openOptions(){
                 var screenwidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
@@ -2282,6 +2287,11 @@
                 }
             }
 
+            function updateLetterSpacing() {
+                document.body.style.letterSpacing = document.getElementById("letterSpacing").value +"px";
+                saveSettings();
+            }
+
             function toggleHandsFree(){
                 saveSettings();
                 if (document.getElementById("hfToggle").checked == true){
@@ -2299,6 +2309,8 @@
                     }
                 }
                 recognition.onerror=function(event){
+                    document.getElementById("hfToggle").checked = false;
+                    document.getElementById("options").style.width="0px";
                     document.getElementById("errorModal").style.display="block";
                     
                 }
@@ -2317,6 +2329,7 @@
                 if (document.getElementById("hfToggle").checked == true){ handsfree=1;}
                 document.cookie = "colour=" + colour+",";
                 document.cookie = "font=" + document.body.style.fontFamily+".";
+                document.cookie = "spacing=" + handsfree+"|";
                 document.cookie = "speed=" + document.getElementById("speechSpeed").value+"'";
                 document.cookie = "handsfree=" + handsfree+"/";
                
@@ -2328,6 +2341,7 @@
                 var loadstring = document.cookie;
                 var colour = loadstring.substring(loadstring.indexOf("colour=")+7,loadstring.indexOf(","));
                 var font = loadstring.substring(loadstring.indexOf("font=")+6,loadstring.indexOf(".")-1);
+                var spacing = loadstring.substring(loadstring.indexOf("spacing=")+8,loadstring.indexOf("|")-1);
                 var speed = loadstring.substring(loadstring.indexOf("speed=")+7,loadstring.indexOf("'")-1);
                 var handsfree = loadstring.substring(loadstring.indexOf("handsfree=")+11,loadstring.indexOf("/")-1);
 
@@ -2336,6 +2350,8 @@
                 
                 document.getElementById("colourscheme").href=colour+".css";
                 document.body.style.fontFamily = font;
+                document.body.style.letterSpacing = spacing +"px";
+                document.getElementById("letterSpacing").value = spacing;
                 document.getElementById("speechSpeed").value =speed;
                 switch(handsfree){
                     case 1:var check=true; break;
@@ -2404,7 +2420,11 @@
                         }
                         Table+="</tr><tr>";
                             for(i = 0; i < items.length; i++){
-                            Table+='<td> <button class="selectBtn" onclick="loadSpellingWindow(\''+items[i].replace(" ", "")+'\')"><div class="tickIcon"><i class="fa fa-check" aria-hidden="true"></i></div></td>';
+                                var word = items[i].replace(" ", "");
+                                if(word.includes("'")){
+                                    word = word.replace("'","\\'"); 
+                                }
+                            Table+='<td> <button class="selectBtn" onclick="loadSpellingWindow(\''+word+'\')"><div class="tickIcon"><i class="fa fa-check" aria-hidden="true"></i></div></td>';
                         }  
                         Table+="</tr></table>";
                         
@@ -2426,6 +2446,7 @@
 
                 recognition.onnomatch=function(event){
                     window.alert("NO MATCH TEST");
+                    loadFunction();
                 }
 
                 recognition.start();

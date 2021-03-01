@@ -1,5 +1,6 @@
 body{
-    font-family: "Lucida Console";
+    font-family: "Quicksand";
+    letter-spacing: 2px;
 }
 
 .window{
@@ -23,7 +24,7 @@ body{
   text-decoration: none;
   display: inline-block;
   
-    margin-top: 15%;
+    margin-top: 10%;
     border-radius: 50%;
 }
 
@@ -36,7 +37,7 @@ body{
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  
+  font-size: 40px;
     padding: 40px;
     border-radius: 50%;
 }
@@ -113,23 +114,28 @@ body{
 
 
 table{
+  margin-top: 5%;
     width: 50%;
     font-size: 30px;
     margin-left: auto;
     margin-right: auto;
+    border-spacing: 30px 0;
 }
 table th{
-    font-size: 60px;
+    font-size: 80px;
     padding: 30px;
 }
 table td{
     padding: 50px;
 }
 .definition{
+    font-size: 50px;
     background-color: #00000023;
     border-radius: 10%; 
     padding-left: 8px;
     padding-right: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .sidenav {
     height: 100%;
@@ -331,12 +337,12 @@ table td{
     
       70% {
         
-        text-shadow: 0px 0px 50px rgba(0, 0, 0, 0.3);
+        text-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
       }
     
       100% {
         
-        text-shadow: 0px 0px 80px rgba(0, 0, 0, 0.1);
+        text-shadow: 0px 0px 80px rgba(0, 0, 0, 0.2);
       }
     }
 
@@ -388,13 +394,14 @@ table td{
     .micIcon{ font-size: 200px;}
 }
 @media screen and (max-width:1920) {
-    .startBtn{ padding:150px;}
+    .startBtn{ padding:125px;}
+    .window{width: 60%; margin-top: 10%;}
 }
 
 @media only screen and (max-width:1100px) {
     .window{width: 90%;
     margin-left: -45%;
-  margin-top: 10%;}
+  margin-top: 1%;}
   .optionsIcon{
     font-size: 150px;
   }

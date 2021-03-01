@@ -35,6 +35,10 @@ button:hover{
 .micIcon{
     color: white;
 }
+.definition{
+    background-color: #ffffff17;
+    
+}
 @keyframes pulse {
     0% {
       
