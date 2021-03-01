@@ -13,6 +13,7 @@ body{
     width: 50%;
     height: 75%;
     left: 50%;
+    z-index: 2;
 }
 
 .startBtn{
@@ -142,7 +143,7 @@ table td{
     width: 0;
     background-color: black;
     position: fixed;
-    z-index: 1;
+    z-index: 5;
     top: 0;
     left: 0;
     overflow-x: hidden;
@@ -164,7 +165,7 @@ table td{
   .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 4; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -212,7 +213,7 @@ table td{
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 6;
   }
   
   .dropdown-content a {
@@ -356,7 +357,7 @@ table td{
       border-radius: 2px;
       padding: 16px;
       position: absolute;
-      z-index: 2;
+      z-index: 9;
       left: 50%;
       bottom: 30px;
       font-size: 50px;
@@ -386,6 +387,19 @@ table td{
     @keyframes fadeout {
       from {bottom: 30px; opacity: 1;}
       to {bottom: 0; opacity: 0;}
+    }
+
+    .HFWindow{
+      display: none;
+      z-index: 1;
+      background-color: lightgreen;
+      border-radius: 5%;
+      width: 20%;
+      font-size: 60px;
+      padding: 70px 50px;
+      margin-top: 10%;
+      margin-left: 2%;
+      font-weight: bold;
     }
 
 @media screen and (max-width:2560px) {
@@ -443,7 +457,17 @@ table td{
       
     }
    
-      
+    .HFWindow{
+      position: absolute;
+      z-index: 3;
+      margin-left: 15%;
+      margin-top: 65%;
+      padding: 5px 5px;
+      width: 60%;
+      font-size: 50px;
+      text-align: center;
+      border-radius: 25px;
+    }
       
 }
 
