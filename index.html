@@ -2338,6 +2338,7 @@
             function loadSettings(){
                 
                 if(document.cookie != ""){
+                alert(document.cookie);
                 var loadstring = document.cookie;
                 var colour = loadstring.substring(loadstring.indexOf("colour=")+7,loadstring.indexOf(","));
                 var font = loadstring.substring(loadstring.indexOf("font=")+6,loadstring.indexOf(".")-1);
@@ -2345,7 +2346,7 @@
                 var speed = loadstring.substring(loadstring.indexOf("speed=")+7,loadstring.indexOf("'")-1);
                 var handsfree = loadstring.substring(loadstring.indexOf("handsfree=")+11,loadstring.indexOf("/")-1);
 
-                
+                alert(font);
                 
                 
                 document.getElementById("colourscheme").href=colour+".css";
