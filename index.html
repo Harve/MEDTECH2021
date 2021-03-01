@@ -2329,7 +2329,7 @@
                 if (document.getElementById("hfToggle").checked == true){ handsfree=1;}
                 document.cookie = "colour=" + colour+",";
                 document.cookie = "font=" + document.body.style.fontFamily+".";
-                document.cookie = "spacing=" + handsfree+"|";
+                document.cookie = "spacing=" + document.getElementById("letterSpacing").value+"|";
                 document.cookie = "speed=" + document.getElementById("speechSpeed").value+"'";
                 document.cookie = "handsfree=" + handsfree+"/";
                
@@ -2341,7 +2341,7 @@
                 
                 var loadstring = document.cookie;
                 var colour = loadstring.substring(loadstring.indexOf("colour=")+7,loadstring.indexOf(","));
-                var font = loadstring.substring(loadstring.indexOf("font=")+5,loadstring.indexOf(".")-1);
+                var font = loadstring.substring(loadstring.indexOf("font=")+5,loadstring.indexOf("."));
                 var spacing = loadstring.substring(loadstring.indexOf("spacing=")+8,loadstring.indexOf("|"));
                 var speed = loadstring.substring(loadstring.indexOf("speed=")+7,loadstring.indexOf("'")-1);
                 var handsfree = loadstring.substring(loadstring.indexOf("handsfree=")+11,loadstring.indexOf("/")-1);
