@@ -407,10 +407,14 @@ table td{
   }
     .startBtn{ padding:150px;}
     .optionTitle{font-size: 50px; margin-top: 40px;}
-    .closeBtn{font-size: 60px;
+    .closeBtn{font-size: 100px;
     margin-bottom: 20px;}
     .sidenav a {font-size: 35px;}
+    .switch{ 
+       margin-bottom: 100px;
+    }
     .switchslider{
+     
       width: 120px;
       height: 60px;
     }
@@ -438,6 +442,9 @@ table td{
       font-size: 60px;
       
     }
+   
+      
+      
 }
 
 
