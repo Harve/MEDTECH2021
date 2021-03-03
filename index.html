@@ -2345,7 +2345,13 @@
                     recognition.onresult =function(event){
                     var word = event.results[0][0].transcript;
                     if(word=="1"|word=="2"|word=="3"|word=="4"){
-                        document.getElementById(word).click();
+                        try{
+                            document.getElementById(word).click();
+                        }catch{
+                            recognition.stop();
+                            startRecognition(); 
+                        }
+                        
                     
                 }else{recognition.stop();
                         handsFreeMode();}
