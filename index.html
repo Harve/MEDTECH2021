@@ -2351,7 +2351,7 @@
                         handsFreeMode();}
                 }}
                 else if(document.getElementById("word").style.display =="block"){
-                    document.getElementById("homeHF").style.display = "block";
+                    document.getElementById("homeHF").style.display = "none";
                     recognition.onresult =function(event){
                     var word = event.results[0][0].transcript;
                     if(word=="start"){
@@ -2362,6 +2362,7 @@
                 }
                 }
                 if(start){
+                    recognition.stop();
                     recognition.start();
                 }
                
