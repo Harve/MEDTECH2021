@@ -2316,6 +2316,7 @@
 
              function handsFreeMode(){
                 const recognition = new webkitSpeechRecognition();
+                recognition.stop();
                 document.getElementById("homeHF").style.display = "none";
                 recognition.onerror=function(event){
                     recognition.stop();
