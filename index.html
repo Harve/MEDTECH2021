@@ -2300,31 +2300,74 @@
             function toggleHandsFree(){
                 saveSettings();
                 if (document.getElementById("hfToggle").checked == true){
+                   
+                    closeOptions();
+                    handsFreeMode();
+                
+                
+               
+                }
+                
+                else {
+                    document.getElementById("homeHF").style.display = "none";
+                }}
+           
+
+
+             function handsFreeMode(){
+                const recognition = new webkitSpeechRecognition();
+                document.getElementById("homeHF").style.display = "none";
+                recognition.onerror=function(event){
+                    recognition.stop();
+                        startRecognition();}
+                recognition.onnomatch=function(event){
+                    recognition.stop();
+                        startRecognition();
+                }
+                while(document.getElementById("hfToggle").checked == true){
+                var start = true;
+                if(document.getElementById("home").style.display =="block"){
                     document.getElementById("homeHF").style.display = "block";
-                    const recognition = new webkitSpeechRecognition();
-                
-                
-              
-               
-               
-                // event handler when a word or phrase has been positively recognized
-                recognition.onresult =function(event){
+                    recognition.onresult =function(event){
                     var word = event.results[0][0].transcript;
                     if(word=="start"){
+                        recognition.stop();
                         startRecognition();
-                    }
+                    }else{recognition.stop();
+                        handsFreeMode();}
                 }
-                recognition.onerror=function(event){
-                    document.getElementById("hfToggle").checked = false;
-                    document.getElementById("options").style.width="0px";
-                    document.getElementById("errorModal").style.display="block";
+                }
+                else if(document.getElementById("listening").style.display =="block"){
+                    start = false;
+                }
+                else if(document.getElementById("homonymDiv").style.display =="block"){
+                    recognition.onresult =function(event){
+                    var word = event.results[0][0].transcript;
+                    if(word=="1"|word=="2"|word=="3"|word=="4"){
+                        document.getElementById(word).click();
+                    
+                }else{recognition.stop();
+                        handsFreeMode();}
+                }}
+                else if(document.getElementById("word").style.display =="block"){
+                    document.getElementById("homeHF").style.display = "block";
+                    recognition.onresult =function(event){
+                    var word = event.results[0][0].transcript;
+                    if(word=="start"){
+                        recognition.stop();
+                        startRecognition();
+                    }else{recognition.stop();
+                        handsFreeMode();}
+                }
+                }
+                if(start){
+                    recognition.start();
+                }
+               
                     
                 }
-                recognition.start();
-                } else {
-                    document.getElementById("homeHF").style.display = "none";
-                }
             }
+            
 
             function saveSettings(){
                 
@@ -2371,6 +2414,7 @@
             }
 
             function startRecognition(){
+                document.getElementById("homeHF").style.display = "none";
                 document.getElementById("homonymDiv").style.display = "none";
                 document.getElementById("word").style.display = "none";
                 document.getElementById("home").style.display = "none";
@@ -2433,13 +2477,18 @@
                                 if(word.includes("'")){
                                     word = word.replace("'","\\'"); 
                                 }
-                            Table+='<td> <button class="selectBtn" onclick="loadSpellingWindow(\''+word+'\')"><div class="tickIcon"><i class="fa fa-check" aria-hidden="true"></i></div></td>';
+                                var btnNo = i+1;
+                            Table+='<td> <button id="'+btnNo+'" class="selectBtn" onclick="loadSpellingWindow(\''+word+'\')"><div class="tickIcon"><i class="fa fa-check" aria-hidden="true"></i></div></td>';
                         }  
                         Table+="</tr></table>";
                         
                         document.getElementById("homonymTable").innerHTML =Table;
                         document.getElementById("listening").style.display = "none";
                         document.getElementById("homonymDiv").style.display = "block";
+                        if(document.getElementById("hfToggle").checked == true){
+                            handsFreeMode();
+                        }
+                        
                     }
                     else{
                         loadSpellingWindow(word);
@@ -2469,6 +2518,9 @@
                         document.getElementById("homonymDiv").style.display = "none";
                         document.getElementById("word").style.display = "block";
                         document.getElementById('soundBtn').setAttribute( "onClick", "playSpellingSpeech(\""+word+"\")" );
+                        if(document.getElementById("hfToggle").checked == true){
+                            handsFreeMode();
+                        }
                     playSpellingSpeech(word);
                    
                 }
