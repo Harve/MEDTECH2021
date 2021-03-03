@@ -2526,10 +2526,11 @@
                         document.getElementById("homonymDiv").style.display = "none";
                         document.getElementById("word").style.display = "block";
                         document.getElementById('soundBtn').setAttribute( "onClick", "playSpellingSpeech(\""+word+"\")" );
+                        playSpellingSpeech(word);
                         if(document.getElementById("hfToggle").checked == true){
                             handsFreeMode();
                         }
-                    playSpellingSpeech(word);
+                   
                    
                 }
 
