@@ -2342,6 +2342,10 @@
                     start = false;
                 }
                 else if(document.getElementById("homonymDiv").style.display =="block"){
+                    var x = document.getElementsByClassName("numberIcons");
+                            for (i = 0; i < x.length; i++) {
+                                x[i].style.display = "table-cell";
+                            }
                     recognition.onresult =function(event){
                     var word = event.results[0][0].transcript;
                     if(word=="1"|word=="2"|word=="3"|word=="4"){
@@ -2488,14 +2492,25 @@
                                 var btnNo = i+1;
                             Table+='<td> <button id="'+btnNo+'" class="selectBtn" onclick="loadSpellingWindow(\''+word+'\')"><div class="tickIcon"><i class="fa fa-check" aria-hidden="true"></i></div></td>';
                         }  
+                        Table+="</tr><tr>";
+                            for(i = 0; i < items.length; i++){
+                                var btnNo = i+1;
+                            Table+="<td class=\"numberIcons\">"+btnNo+"</td>";
+                        }
                         Table+="</tr></table>";
                         
                         document.getElementById("homonymTable").innerHTML =Table;
                         document.getElementById("listening").style.display = "none";
                         document.getElementById("homonymDiv").style.display = "block";
                         if(document.getElementById("hfToggle").checked == true){
+                            var x = document.getElementsByClassName("numberIcons");
+                            for (i = 0; i < x.length; i++) {
+                                x[i].style.display = "table-cell";
+                            }
                             handsFreeMode();
-                        }
+                            }
+                            
+                        
                         
                     }
                     else{
