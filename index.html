@@ -5,10 +5,11 @@
         <link id="colourscheme" rel="stylesheet" href="green.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Andika&family=Mulish&family=Quicksand:wght@500&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Mulish&family=Quicksand:wght@500&display=swap" rel="stylesheet"> 
     </head>
     <body onload="loadFunction()">
-        <div id="snackbar">Settings Applied</div>
+        <div  id="snackbar">Settings Applied</div>
+        
         <div id="errorModal" class="modal">
 
             <!-- Modal content -->
@@ -38,7 +39,7 @@
                 <div class="optionTitle"><b>Font</b></div>
                 <div class="dropdown-content">
                     <a style="font-family: Quicksand;" onclick="setFont('Quicksand')">Quicksand</a>
-                    <a style="font-family: Andika;"onclick="setFont('Andika')">Andika</a>
+                    <a style="font-family: Open Sans;"onclick="setFont('Open Sans')">Open Sans</a>
                     <a style="font-family: Mulish;"onclick="setFont('Mulish')">Mulish</a>
                 </div><br>
                 <div class="optionTitle"><b>Letter Spacing</b></div>
@@ -59,12 +60,11 @@
         </div>
         <!--START MENU-->
         <div id="home" class="window">
+            <div id="listeningTitle" class="listenTitle"></div>
             <button class="startBtn" onclick="startRecognition()"><div class="micIcon"><i class="fa fa-microphone" aria-hidden="true"></i></div></i>
             </button>
         </div>
-        <div id="homeHF" class="HFWindow">
-            <p>Say "Start" to begin.</p>
-        </div>
+        
         <!--LISTENING MENU-->
         <div id="listening"  class="window">
             <div id="listeningTitle" class="listenTitle">Listening</div>
@@ -85,7 +85,9 @@
             
             <button class="startBtn" onclick="startRecognition()"><div class="micIcon"><i class="fa fa-microphone" aria-hidden="true"></i></div></i>
         </div>
-
+        <div id="homeHF" class="HFWindow">
+            <p>Say "Start" to begin.</p>
+        </div>
         <script>
             //HOMONYMS
             //#region
@@ -2302,6 +2304,7 @@
                 if (document.getElementById("hfToggle").checked == true){
                    
                     closeOptions();
+                   
                     handsFreeMode();
                 
                 
@@ -2309,7 +2312,13 @@
                 }
                 
                 else {
+                    
+                   
                     document.getElementById("homeHF").style.display = "none";
+                    var x = document.getElementsByClassName("numberIcons");
+                            for (i = 0; i < x.length; i++) {
+                                x[i].style.display = "none";
+                            }
                 }}
            
 
@@ -2361,7 +2370,7 @@
                         handsFreeMode();}
                 }}
                 else if(document.getElementById("word").style.display =="block"){
-                    document.getElementById("homeHF").style.display = "none";
+                    document.getElementById("homeHF").style.display = "block";
                     recognition.onresult =function(event){
                     var word = event.results[0][0].transcript;
                     if(word=="start"){

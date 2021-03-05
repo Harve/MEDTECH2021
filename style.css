@@ -25,7 +25,7 @@ body{
   text-decoration: none;
   display: inline-block;
   
-    margin-top: 10%;
+   
     border-radius: 50%;
 }
 
@@ -400,7 +400,7 @@ table td{
     .HFWindow{
       display: none;
       z-index: 1;
-      background-color: lightgreen;
+     
       border-radius: 5%;
       width: 20%;
       font-size: 60px;
