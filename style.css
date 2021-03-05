@@ -427,6 +427,7 @@ table td{
   .optionsIcon{
     font-size: 150px;
   }
+  .wordTitle{font-size: 150px;}
     .startBtn{ padding:150px;}
     .optionTitle{font-size: 50px; margin-top: 40px;}
     .closeBtn{font-size: 100px;
