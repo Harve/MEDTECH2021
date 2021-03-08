@@ -1,3 +1,4 @@
+@font-face { font-family: OpenDyslexic; src: url('OpenDyslexic-Regular.otf'); }
 body{
     font-family: "Quicksand";
     letter-spacing: 2px;
@@ -76,11 +77,14 @@ body{
     background-color: white;
     color: dimgray;
 }
+
+
 .wordTitle{
   font-size: 100px;
   margin-top: 10%;
 }
 .listenTitle{
+
   font-size: 100px;
   margin-top: 10%;
 }

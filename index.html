@@ -29,6 +29,7 @@
                 <div class="dropdown-content">
                     <a onclick="setColourScheme('green')">Green</a>
                     <a onclick="setColourScheme('blue')">Blue</a>
+                    <a onclick="setColourScheme('cream')">Cream</a>
                     <a onclick="setColourScheme('dark')">Dark</a>
                 </div>
                 
@@ -41,6 +42,7 @@
                     <a style="font-family: Quicksand;" onclick="setFont('Quicksand')">Quicksand</a>
                     <a style="font-family: Open Sans;"onclick="setFont('Open Sans')">Open Sans</a>
                     <a style="font-family: Mulish;"onclick="setFont('Mulish')">Mulish</a>
+                    <a style="font-family: OpenDyslexic;"onclick="setFont('OpenDyslexic')">Open Dyslexic</a>
                 </div><br>
                 <div class="optionTitle"><b>Letter Spacing</b></div>
                 <input class="slider" id="letterSpacing" type="range" min="1" max="8" value="2" onchange="updateLetterSpacing()"><br><br>
@@ -80,9 +82,10 @@
         <!--SPELLING MENU-->
         <div id="word"  class="window">
             <button id="soundBtn" class="soundBtn" onclick="playSpellingSpeech(word)"><div class="soundIcon"><i class="fa fa-volume-up" aria-hidden="true"></i></div></button>
+           
+
             <div class="wordTitle"><p id="wordP"></p></div>
-            
-            
+          
             <button class="startBtn" onclick="startRecognition()"><div class="micIcon"><i class="fa fa-microphone" aria-hidden="true"></i></div></i>
         </div>
         <div id="homeHF" class="HFWindow">
