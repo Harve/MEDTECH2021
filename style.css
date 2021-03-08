@@ -380,6 +380,34 @@ table td{
       -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
       animation: fadein 0.5s, fadeout 0.5s 2.5s;
     }
+
+    #HFsnackbar {
+      cursor: pointer;
+      visibility: hidden;
+      min-width: 100%;
+      margin-left: -50%;
+      background-color: rgb(34, 34, 34);
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: absolute;
+      z-index: 9;
+      left: 50%;
+      bottom: 30px;
+      font-size: 50px;
+    }
+    
+    #HFsnackbar.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s;
+      animation: fadein 0.5s;
+    }
+
+    #HFsnackbar:hover{
+      background-color: rgb(78, 78, 78);
+      text-decoration: underline;
+    }
     
     @-webkit-keyframes fadein {
       from {bottom: 0; opacity: 0;} 
@@ -474,7 +502,7 @@ table td{
       position: absolute;
       z-index: 3;
       margin-left: 20%;
-      margin-top: 90%;
+      margin-top: 95%;
       padding: 5px 5px;
       width: 60%;
       font-size: 60px;

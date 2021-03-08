@@ -9,7 +9,7 @@
     </head>
     <body onload="loadFunction()">
         <div  id="snackbar">Settings Applied</div>
-        
+        <div onclick="stopHandsFree()" id="HFsnackbar">Hands Free Mode started - Click here to stop</div>
         <div id="errorModal" class="modal">
 
             <!-- Modal content -->
@@ -2301,11 +2301,25 @@
                 document.body.style.letterSpacing = document.getElementById("letterSpacing").value +"px";
                 saveSettings();
             }
-
+            function stopHandsFree(){
+                if(!(document.getElementById("listening").style.display =="block")){
+                    const recognition = new webkitSpeechRecognition();
+                    recognition.stop();
+                    alert("pe");
+                }
+                document.getElementById("hfToggle").checked = false;
+                    document.getElementById("HFsnackbar").className = "none";
+                    document.getElementById("homeHF").style.display = "none";
+                    var x = document.getElementsByClassName("numberIcons");
+                            for (i = 0; i < x.length; i++) {
+                                x[i].style.display = "none";
+                            }
+            }
             function toggleHandsFree(){
                 saveSettings();
                 if (document.getElementById("hfToggle").checked == true){
-                   
+                    document.getElementById("HFsnackbar").className = "show";
+                    
                     closeOptions();
                    
                     handsFreeMode();
@@ -2315,13 +2329,7 @@
                 }
                 
                 else {
-                    
-                   
-                    document.getElementById("homeHF").style.display = "none";
-                    var x = document.getElementsByClassName("numberIcons");
-                            for (i = 0; i < x.length; i++) {
-                                x[i].style.display = "none";
-                            }
+                    stopHandsFree();
                 }}
            
 
