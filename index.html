@@ -2570,8 +2570,9 @@
                 }
 
                 recognition.onnomatch=function(event){
-                    window.alert("NO MATCH TEST");
-                    loadFunction();
+                    recognition.abort();
+                    startRecognition();
+                   
                 }
                 recognition.abort();
                 recognition.start();
