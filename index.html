@@ -77,13 +77,14 @@
         </div>
         <!--HOMONYM MENU-->
         <div id="homonymDiv"  class="window">
+            <button id="defsoundBtn" class="soundBtn" onclick="playDefinition()"><div class="soundIcon"><i class="fa fa-volume-up" aria-hidden="true"></i></div></button>
             <div id="homonymTable">
 
             </div>
         </div>
         <!--SPELLING MENU-->
         <div id="word"  class="window">
-            <button id="soundBtn" class="soundBtn" onclick="playSpellingSpeech(word)"><div class="soundIcon"><i class="fa fa-volume-up" aria-hidden="true"></i></div></button>
+            <button id="wordsoundBtn" class="soundBtn" onclick="playSpellingSpeech(word)"><div class="soundIcon"><i class="fa fa-volume-up" aria-hidden="true"></i></div></button>
            
 
             <div class="wordTitle"><p id="wordP"></p></div>
@@ -92,6 +93,9 @@
         </div>
         <div id="homeHF" class="HFWindow">
             <p>Say "Start" to begin.</p>
+        </div>
+        <div id="repeatHF" class="HFRepeat">
+            <p> Say "Repeat" to replay voice synthesis</p>
         </div>
         <script>
             //HOMONYMS
@@ -2310,7 +2314,7 @@
                     
                 }
                 document.getElementById("hfToggle").checked = false;
-                    document.getElementById("HFsnackbar").className = "none";
+                    document.getElementById("HFsnackbar").className = "";
                     document.getElementById("homeHF").style.display = "none";
                     var x = document.getElementsByClassName("numberIcons");
                             for (i = 0; i < x.length; i++) {
@@ -2340,6 +2344,7 @@
                 const recognition = new webkitSpeechRecognition();
                 recognition.stop();
                 document.getElementById("homeHF").style.display = "none";
+                document.getElementById("repeatHF").style.display = "none";
                 recognition.onerror=function(event){
                     recognition.stop();
                         startRecognition();}
@@ -2364,6 +2369,7 @@
                     start = false;
                 }
                 else if(document.getElementById("homonymDiv").style.display =="block"){
+                    document.getElementById("repeatHF").style.display = "block";
                     var x = document.getElementsByClassName("numberIcons");
                             for (i = 0; i < x.length; i++) {
                                 x[i].style.display = "table-cell";
@@ -2378,18 +2384,29 @@
                             startRecognition(); 
                         }
                         
+                        
                     
-                }else{recognition.stop();
+                }else if(word=="repeat"){
+                         document.getElementById('defsoundBtn').click();  
+                         handsFreeMode();
+                        }
+                else{recognition.stop();
                         handsFreeMode();}
                 }}
                 else if(document.getElementById("word").style.display =="block"){
                     document.getElementById("homeHF").style.display = "block";
+                    document.getElementById("repeatHF").style.display = "block";
                     recognition.onresult =function(event){
                     var word = event.results[0][0].transcript;
                     if(word=="start"){
                         recognition.stop();
                         startRecognition();
-                    }else{recognition.stop();
+                    }else if(word=="repeat"){
+                        document.getElementById('wordsoundBtn').click();
+                        handsFreeMode();
+                        }
+                    
+                    else{recognition.stop();
                         handsFreeMode();}
                 }
                 }
@@ -2524,6 +2541,7 @@
                         document.getElementById("homonymTable").innerHTML =Table;
                         document.getElementById("listening").style.display = "none";
                         document.getElementById("homonymDiv").style.display = "block";
+                        playDefinition()
                         if(document.getElementById("hfToggle").checked == true){
                             var x = document.getElementsByClassName("numberIcons");
                             for (i = 0; i < x.length; i++) {
@@ -2562,7 +2580,7 @@
                         document.getElementById("listening").style.display = "none";
                         document.getElementById("homonymDiv").style.display = "none";
                         document.getElementById("word").style.display = "block";
-                        document.getElementById('soundBtn').setAttribute( "onClick", "playSpellingSpeech(\""+word+"\")" );
+                        document.getElementById('wordsoundBtn').setAttribute( "onClick", "playSpellingSpeech(\""+word+"\")" );
                         playSpellingSpeech(word);
                         if(document.getElementById("hfToggle").checked == true){
                             handsFreeMode();
@@ -2578,6 +2596,19 @@
                     speech.rate=(document.getElementById("speechSpeed").value/10);
                     speechSynthesis.speak(speech);
                     }
+
+                function playDefinition(){
+                    
+                   
+                    var x = document.getElementsByClassName("definition");
+                            for (i = 0; i < x.length; i++) {
+                                var defNum =  i+1 +" - ";
+                               var spokenText = defNum + x[i].innerHTML ;
+                               let speech = new SpeechSynthesisUtterance(spokenText);
+                               speech.rate=(document.getElementById("speechSpeed").value/10);
+                               setTimeout(() => { speechSynthesis.speak(speech);},2000);
+                            }
+                }
         </script>
     </body>
 </html>
