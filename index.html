@@ -2316,6 +2316,7 @@
                 document.getElementById("hfToggle").checked = false;
                     document.getElementById("HFsnackbar").className = "";
                     document.getElementById("homeHF").style.display = "none";
+                    document.getElementById("repeatHF").style.display = "none";
                     var x = document.getElementsByClassName("numberIcons");
                             for (i = 0; i < x.length; i++) {
                                 x[i].style.display = "none";
@@ -2345,6 +2346,7 @@
                 recognition.stop();
                 document.getElementById("homeHF").style.display = "none";
                 document.getElementById("repeatHF").style.display = "none";
+                
                 recognition.onerror=function(event){
                     recognition.stop();
                         startRecognition();}
@@ -2457,15 +2459,17 @@
                     case 1:var check=true; break;
                     case 0:var check=false; break;
                 }
-                if(check){
-                    document.getElementById("homeHF").style.display = "block";
-                }
+                
                 document.getElementById("hfToggle").checked = check; 
+                if(check){
+                   toggleHandsFree();
+                }
                 }
             }
 
             function startRecognition(){
                 document.getElementById("homeHF").style.display = "none";
+                document.getElementById("repeatHF").style.display = "none";
                 document.getElementById("homonymDiv").style.display = "none";
                 document.getElementById("word").style.display = "none";
                 document.getElementById("home").style.display = "none";
