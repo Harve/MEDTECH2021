@@ -4,7 +4,7 @@
         <title>Dyslexic Spelling Help</title>
         <link rel="shortcut icon" href="icon.ico">
         <link rel="stylesheet" href="style.css">
-        <link id="colourscheme" rel="stylesheet" href="green.css">
+        <link id="colourscheme" rel="stylesheet" href="cream.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Mulish&family=Quicksand:wght@500&display=swap" rel="stylesheet"> 
@@ -29,9 +29,9 @@
             <div class="colourOptions">
                 <div class="optionTitle"><b>Colour Scheme</b></div>
                 <div class="dropdown-content">
+                    <a onclick="setColourScheme('cream')">Cream</a>
                     <a onclick="setColourScheme('green')">Green</a>
                     <a onclick="setColourScheme('blue')">Blue</a>
-                    <a onclick="setColourScheme('cream')">Cream</a>
                     <a onclick="setColourScheme('dark')">Dark</a>
                 </div>
                 
@@ -2537,8 +2537,9 @@
                         }  
                         Table+="</tr><tr>";
                             for(i = 0; i < items.length; i++){
-                                var btnNo = i+1;
-                            Table+="<td class=\"numberIcons\">"+btnNo+"</td>";
+                                var btnNo =  i+1;
+                                var btnTxt = "Say \"" + btnNo +"\"";
+                            Table+="<td class=\"numberIcons\">"+btnTxt+"</td>";
                         }
                         Table+="</tr></table>";
                         
@@ -2611,7 +2612,7 @@
                                var spokenText = defNum + x[i].innerHTML ;
                                let speech = new SpeechSynthesisUtterance(spokenText);
                                speech.rate=(document.getElementById("speechSpeed").value/10);
-                               setTimeout(() => { speechSynthesis.speak(speech);},2000);
+                               setTimeout(() => { speechSynthesis.speak(speech);},1500);
                             }
                 }
         </script>
