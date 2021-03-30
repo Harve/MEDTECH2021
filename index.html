@@ -41,6 +41,7 @@
                     <a onclick="setColourScheme('cream')">Cream</a>
                     <a onclick="setColourScheme('green')">Green</a>
                     <a onclick="setColourScheme('blue')">Blue</a>
+                    <a onclick="setColourScheme('white')">White</a>
                     <a onclick="setColourScheme('dark')">Dark</a>
                 </div>
                 
@@ -335,12 +336,17 @@
                 "spelling": "break"
             },
             {
-                "homonyms": "bee",
+                "homonyms": "be,bee",
+                "definition": "second letter",
+                "spelling": "b"
+            },
+            {
+                "homonyms": "b,bee",
                 "definition": "to exist",
                 "spelling": "be"
             },
             {
-                "homonyms": "be",
+                "homonyms": "b,be",
                 "definition": "insect",
                 "spelling": "bee"
             },
@@ -748,6 +754,16 @@
                 "homonyms": "guessed",
                 "definition": "a visitor",
                 "spelling": "guest"
+            },
+            {
+                "homonyms": "i",
+                "definition": "organ for sight",
+                "spelling": "eye"
+            },
+            {
+                "homonyms": "eye",
+                "definition": "ninth letter",
+                "spelling": "I"
             },
             {
                 "homonyms": "its",
@@ -2200,6 +2216,16 @@
                 "spelling": "wave"
             },
             {
+                "homonyms": "which",
+                "definition": "pointy hat and broomstick",
+                "spelling": "witch"
+            },
+            {
+                "homonyms": "witch",
+                "definition": "one or the other",
+                "spelling": "which"
+            },
+            {
                 "homonyms": "whose",
                 "definition": "who is",
                 "spelling": "who's"
@@ -2503,7 +2529,10 @@
                 recognition.onresult =function(event){
                     
                     var word = event.results[0][0].transcript;
-
+                    var multiplewords = word.split(' ');
+                    if (multiplewords.length >1){
+                        word = multiplewords[multiplewords.length-1];
+                    }
                    
                     var index = homonyms.findIndex(function(item, i){
                     return item.spelling === word
@@ -2600,6 +2629,15 @@
 
                 function loadSpellingWindow(word){
                     var word = word;
+                    if(word.length<6){
+                        document.getElementById("wordP").style.fontSize ='150px';
+                    }
+                    if(word.length >6){
+                        document.getElementById("wordP").style.fontSize ='100px';
+                    }
+                    if(word.length>16){
+                        document.getElementById("wordP").style.fontSize= '75px';
+                    }
                     document.getElementById("wordP").innerHTML=word;
                         document.getElementById("listening").style.display = "none";
                         document.getElementById("homonymDiv").style.display = "none";

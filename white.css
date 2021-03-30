@@ -1,0 +1,48 @@
+body{
+    background-color:#d1d1d1 ;
+}
+button{
+    background-color: #2b2b2b;
+    color: white;
+}
+button:hover{
+    background-color: #1d1d1d;
+    cursor: pointer;
+}
+.optionBtn{
+    background-color: #d1d1d1;
+    color: #2b2b2b;
+}
+.optionBtn:hover{
+    background-color: #d1d1d1;
+    color: #1d1d1d;
+}
+.window{
+    background-color: #ffffff;
+    
+}
+.wordTitle{
+    
+    color: #1d1d1d;
+}
+.listenTitle{
+    
+    color: #1d1d1d;
+}
+
+.micAnimated{
+    color: #1d1d1d;
+}
+table{
+    color: #1d1d1d;
+}
+
+.numberIcons{
+    background-color: #1d1d1d}
+
+.HFWindow{
+    background-color: #b6afa8;
+}
+.HFRepeat{
+    background-color: #b6afa8;
+}

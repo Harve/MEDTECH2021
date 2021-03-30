@@ -25,7 +25,7 @@ body{
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  
+  margin-top: -5%;
    
     border-radius: 50%;
 }
@@ -80,7 +80,7 @@ body{
 
 
 .wordTitle{
-  font-size: 100px;
+  font-size: 150px;
   margin-top: 10%;
 }
 .listenTitle{
@@ -460,7 +460,7 @@ table td{
 @media screen and (max-width:2560px) {
     .startBtn{ padding:150px 200px;
     }
-    .micIcon{ font-size: 200px;}
+    .micIcon{ font-size: 175px;}
 }
 @media screen and (max-width:1920) {
     .startBtn{ padding:125px;}
