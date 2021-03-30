@@ -21,6 +21,15 @@
             </div>
           
           </div>
+          <div id="browserModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <p> Your browser does not support WebSpeechAPI. This site uses Webspeech API to function, please switch to a browser that supports WebSpeechAPI.<br> A full list can be found <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API#browser_compatibility">here.</a></p>
+            </div>
+          
+          </div>
         <button class="optionBtn" onclick="openOptions()"><div class="optionsIcon"><i class="fa fa-cog" aria-hidden="true"></i>
         </div></button>
         <!--OPTION MENU-->
@@ -2271,9 +2280,18 @@
             }
             function closeModal(){
                 document.getElementById("errorModal").style.display="none";
+                document.getElementById("browserModal").style.display="none";
                 loadFunction();
             }
             function loadFunction(){
+                if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+                // speech recognition API supported
+                } else {
+                // speech recognition API not supported
+                document.getElementById("browserModal").style.display="block";
+               
+
+                }
                 loadSettings();
                 document.getElementById("listening").style.display = "none";
                 document.getElementById("homonymDiv").style.display = "none";

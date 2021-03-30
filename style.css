@@ -1,7 +1,7 @@
 @font-face { font-family: OpenDyslexic; src: url('OpenDyslexic-Regular.otf'); }
 body{
     font-family: "Quicksand";
-    letter-spacing: 2px;
+    letter-spacing: 4px;
 }
 
 .window{
@@ -182,6 +182,7 @@ table td{
   
   /* Modal Content */
   .modal-content {
+    font-size: 20px;
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
