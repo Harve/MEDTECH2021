@@ -10,7 +10,18 @@ option{
 select{
   font-size: 40px;
 }
-
+.applyBtn{
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+  font-size: 40px;
+  margin-top: 5%;
+  border-radius: 10px;
+}
+.applyBtn:hover{
+  background-color: lightgray;
+ 
+}
 .window{
   border-radius: 10%;
     text-align: center;
@@ -544,8 +555,20 @@ table td{
       text-align: center;
       border-radius: 25px;
     }
-    .modal-content {
-      font-size: 40px;}
+    
+      
+      
+      select{
+        font-size: 50px;
+      }
+      .applyBtn{
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+        font-size: 50px;
+        margin-top: 5%;
+        border-radius: 10px;
+      }
       
 }
 
