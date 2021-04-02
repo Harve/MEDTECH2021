@@ -4,6 +4,13 @@ body{
     letter-spacing: 4px;
 }
 
+option{
+  font-size: 40px;
+}
+select{
+  font-size: 40px;
+}
+
 .window{
   border-radius: 10%;
     text-align: center;
@@ -169,7 +176,7 @@ table td{
   .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 4; /* Sit on top */
+    z-index: 999; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;

@@ -30,7 +30,79 @@
             </div>
           
           </div>
-        <button class="optionBtn" onclick="openOptions()"><div class="optionsIcon"><i class="fa fa-cog" aria-hidden="true"></i>
+          <div id="customThemeModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <p> Select a Background Colour</p>
+                <select id="backgroundColour">
+                      <option value = "white" style="background-color:white">White </option>    
+                      <option value = "#d6d0ca" style="background-color:#d6d0ca">Cream </option>    
+                      <option value = "#d4b2b2" style="background-color:#d4b2b2">Red </option>    
+                      <option value = "#b2d4b2" style="background-color:#b2d4b2">Green </option>    
+                      <option value = "#b2b2d4" style="background-color:#b2b2d4">Blue </option>    
+                      <option value = "#d1d1d1" style="background-color:#d1d1d1">Light Grey </option>   
+                      <option value = "#2e2e2e" style="background-color:#2e2e2e; color: white;">Dark Grey </option>      
+                      <option value = "black" style="background-color:black; color: white;">Black </option>     
+                </select>
+              <p> Select a Window Colour</p>
+                <select id="windowColour">
+                    <option value = "white" style="background-color:white"> </p>  White</option>    
+                    <option value = "#fff5f2" style="background-color:#fff5f2"> </p>  Cream</option>    
+                    <option value = "#bc8f8f" style="background-color:#bc8f8f"> </p>  Red</option>    
+                    <option value = "#8fbc8f" style="background-color:#8fbc8f"> </p>  Green</option>    
+                    <option value = "#8f8fbc" style="background-color:#8f8fbc"> </p>  Blue</option>    
+                    <option value = "#a6a6a6" style="background-color:#a6a6a6"> </p>  Light Grey</option>   
+                    <option value = "#797979" style="background-color:#797979"> </p>  Dark Grey</option>      
+                    <option value = "black" style="background-color:black; color: white;"> </p>  Black</option>    
+                </select>
+              <p> Select a Secondary Window Colour</p>
+                <select id="secondaryColour">
+                    <option value = "white" style="background-color:white"> </p>  White</option>    
+                    <option value = "#d1bca7" style="background-color:#d1bca7"> </p>  Cream</option>    
+                    <option value = "#ee9090" style="background-color:#ee9090"> </b> Red</option>    
+                    <option value = "#90ee90" style="background-color:#90ee90"> </b> Green</option>    
+                    <option value = "#9090ee" style="background-color:#9090ee"> </b> Blue</option>    
+                    <option value = "#757575" style="background-color:#757575"> </b> Light Grey</option>   
+                    <option value = "#292828" style="background-color:#292828; color: white;"> </b> Dark Grey</option>      
+                    <option value = "black" style="background-color:black; color: white;"> </b> Black</option>    
+                </select>
+              <p> Select a Text Colour</p>
+                <select id="textColour">
+                    <option value = "white" style="background-color:#666666; color:white"> </b> White</option>    
+                    <option value = "#e5dfc0" style="background-color:#666666;color:#e5dfc0"> </b> Cream</option>    
+                    <option value = "#46201f" style="color:#46201f"> </b> Red</option>    
+                    <option value = "#1f4620" style="color:#1f4620"> </b> Green</option>    
+                    <option value = "#292759" style="color:#292759"> </b> Blue</option>    
+                    <option value = "#c0c0c0" style="background-color:#666666; color:#c0c0c0"> </b> Light Grey</option>   
+                    <option value = "#747474" style="color:#747474"> </b> Dark Grey</option>      
+                    <option value = "black" style="color:black"> </b> Black</option>     
+                </select>
+                <p> Select a Button Colour</p>
+                <select id="buttonColour">
+                    <option value = "white" style="background-color:white"> </p>  White</option>    
+                    <option value = "#fff39a" style="background-color:#fff39a"> </p>  Cream</option>    
+                    <option value = "#af504c" style="background-color:#af504c"> </b> Red</option>    
+                    <option value = "#4CAF50" style="background-color:#4CAF50"> </b> Green</option>    
+                    <option value = "#504caf" style="background-color:#504caf"> </b> Blue</option>    
+                    <option value = "#757575" style="background-color:#757575"> </b> Light Grey</option>   
+                    <option value = "#292828" style="background-color:#292828; color: white;"> </b> Dark Grey</option>      
+                    <option value = "black" style="background-color:black; color: white;"> </b> Black</option>    
+                </select>
+                <p> Window Border</p>
+                <select id="border">
+                    <option value = "none"> </b> No Border</option>    
+                    <option value = "3px solid black" > </b> Black Border</option>    
+                    <option value = "3px solid white" > </b> White Border</option>    
+                      
+                </select>
+                <br>
+                <button class="applyBtn" onclick="setCustomTheme()">Apply Settings</button>
+            </div>
+          
+          </div>
+        <button  id="optionsBtn" class="optionBtn" onclick="openOptions()"><div  class="optionsIcon"><i class="fa fa-cog" aria-hidden="true"></i>
         </div></button>
         <!--OPTION MENU-->
         <div id="options" class="sidenav">
@@ -38,11 +110,12 @@
             <div class="colourOptions">
                 <div class="optionTitle"><b>Colour Scheme</b></div>
                 <div class="dropdown-content">
-                    <a onclick="setColourScheme('cream')">Cream</a>
+                    <a onclick="setColourScheme('cream')">Cream</a>   
                     <a onclick="setColourScheme('green')">Green</a>
                     <a onclick="setColourScheme('blue')">Blue</a>
                     <a onclick="setColourScheme('white')">White</a>
                     <a onclick="setColourScheme('dark')">Dark</a>
+                    <a onclick="openCustomModal()">Custom <i class="fa fa-cog" aria-hidden="true"></i></a>
                 </div>
                 
                 
@@ -75,7 +148,7 @@
         <!--START MENU-->
         <div id="home" class="window">
             <div id="listeningTitle" class="listenTitle"></div>
-            <button class="startBtn" onclick="startRecognition()"><div class="micIcon"><i class="fa fa-microphone" aria-hidden="true"></i></div></i>
+            <button id="homeStart"class="startBtn" onclick="startRecognition()"><div class="micIcon"><i class="fa fa-microphone" aria-hidden="true"></i></div></i>
             </button>
         </div>
         
@@ -99,7 +172,7 @@
 
             <div class="wordTitle"><p id="wordP"></p></div>
           
-            <button class="startBtn" onclick="startRecognition()"><div class="micIcon"><i class="fa fa-microphone" aria-hidden="true"></i></div></i>
+            <button id="wordStart" class="startBtn" onclick="startRecognition()"><div class="micIcon"><i class="fa fa-microphone" aria-hidden="true"></i></div></i>
         </div>
         <div id="homeHF" class="HFWindow">
             <p>Say "Start" to begin.</p>
@@ -2307,7 +2380,11 @@
             function closeModal(){
                 document.getElementById("errorModal").style.display="none";
                 document.getElementById("browserModal").style.display="none";
+                document.getElementById("customThemeModal").style.display="none";
                 loadFunction();
+            }
+            function openCustomModal(){
+                document.getElementById("customThemeModal").style.display="block";
             }
             function loadFunction(){
                 if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
@@ -2365,6 +2442,50 @@
                             for (i = 0; i < x.length; i++) {
                                 x[i].style.display = "none";
                             }
+            }
+
+            function setCustomTheme(){
+                var backgroundColor = document.getElementById("backgroundColour").value;
+                var windowColor = document.getElementById("windowColour").value;
+                var secondaryColor = document.getElementById("secondaryColour").value;
+                var textColor = document.getElementById("textColour").value;
+                var buttonColor = document.getElementById("buttonColour").value;
+                var border = document.getElementById("border").value;
+
+                document.body.style.backgroundColor = backgroundColor;
+
+                document.getElementById("listening").style.backgroundColor = windowColor;
+                document.getElementById("homonymDiv").style.backgroundColor = windowColor;
+                document.getElementById("word").style.backgroundColor = windowColor;
+                document.getElementById("home").style.backgroundColor =windowColor;
+
+                document.getElementById("listening").style.color = textColor;
+                document.getElementById("homonymDiv").style.color = textColor;
+                document.getElementById("word").style.color = textColor;
+                document.getElementById("home").style.color =textColor;
+                document.getElementById("homeHF").style.color = textColor;
+                document.getElementById("repeatHF").style.color = textColor;
+                document.getElementById("wordP").style.color=textColor;
+                document.getElementById("listeningTitle").style.color=textColor;
+                document.getElementById("micAnimation").style.color=textColor;
+
+                document.getElementById("homeHF").style.backgroundColor = secondaryColor;
+                document.getElementById("repeatHF").style.backgroundColor = secondaryColor;
+
+                document.getElementById("homeStart").style.backgroundColor = buttonColor;
+                document.getElementById("wordStart").style.backgroundColor = buttonColor;
+                document.getElementById("defsoundBtn").style.backgroundColor = buttonColor;
+                document.getElementById("wordsoundBtn").style.backgroundColor = buttonColor;
+                
+                document.getElementById("listening").style.border = border;
+                document.getElementById("homonymDiv").style.border = border;
+                document.getElementById("word").style.border = border;
+                document.getElementById("home").style.border =border;
+
+                document.getElementById("optionsBtn").style.color = buttonColor;
+                document.getElementById("optionsBtn").style.backgroundColor = backgroundColor;
+
+                closeModal();
             }
             function toggleHandsFree(){
                 saveSettings();

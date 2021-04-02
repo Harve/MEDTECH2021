@@ -16,14 +16,7 @@ button:hover{
     color: white;
     
 }
-.wordTitle{
-    
-    color: white;
-}
-.listenTitle{
-    
-    color: white;
-}
+
 .optionBtn{
     background-color: #2e2e2e;
     color: grey;
@@ -32,9 +25,7 @@ button:hover{
     background-color: #2e2e2e;
     color: lightgray;
 }
-.micIcon{
-    color: white;
-}
+
 .definition{
     background-color: #ffffff17;
     
@@ -57,7 +48,7 @@ button:hover{
   }
 
   .numberIcons{
-    background-color: #2e2e2e}
+    background-color: #2e2e2e6c}
 .HFWindow{
         background-color: #292828;
         color: white;
